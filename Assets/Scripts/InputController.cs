@@ -3,6 +3,7 @@ using UnityEngine;
 public class InputController : MonoBehaviour
 {
     [SerializeField] private GameObject _gunSwipe;
+    [SerializeField] private GameObject SettingsPanel;
     private IShooting _shooting;
     public static float _horizontalInput;
     public static float _verticalInput;
@@ -18,6 +19,11 @@ public class InputController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             _shooting.Fire();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SettingsPanel.GetComponent<Settings>().Setting(true);
         }
 
         _horizontalInput = Input.GetAxis("Horizontal");

@@ -1,18 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Health : MonoBehaviour
+public abstract class Health : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int _health;
+    [SerializeField] private int _maxHealth;
+    
+    [SerializeField] private Image[] _heartSprites; // Массив изображений сердец
+    [SerializeField] private Image _emptyHeartSprite; // Спрайт для пустого сердца
+    [SerializeField] private Image _fullHeartSprite; // Спрайт для заполненного сердца
+
+    private void Start()
     {
-        
+        _health = _maxHealth;
+        UpdateHealthSprites();
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void ApplyDamage(int damage)
     {
-        
+        _health -= damage;
+
+        if (_health <= 0)
+        {
+            Die();
+        }
+
+        UpdateHealthSprites();
+    }
+
+    public virtual void RegenerateHealth(int healthAmount)
+    {
+        if (_health < _maxHealth)
+        {
+            _health += healthAmount;
+            UpdateHealthSprites();
+        }
+    }
+
+    private void UpdateHealthSprites()
+    {
+        // Обновление видимости изображений в зависимости от текущего здоровья
+        for (int i = 0; i < _heartSprites.Length; i++)
+        {
+            if (i < _health)
+            {
+                // Отображение заполненного сердца
+                _heartSprites[i].enabled = true;
+                _heartSprites[i].sprite = _fullHeartSprite.sprite; // Установка спрайта
+            }
+            else
+            {
+                // Отключение изображения для пустого сердца
+                _heartSprites[i].enabled = false;
+            }
+        }
+    }
+
+    public virtual void Die()
+    {
+        print("Die" + gameObject.name);
+        Destroy(gameObject);
     }
 }

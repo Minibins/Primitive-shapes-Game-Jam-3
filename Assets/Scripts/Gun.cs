@@ -48,10 +48,12 @@ public abstract class Gun : MonoBehaviour
             _lastShotTime = Time.time;
             
             GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
-            _bullet.GetComponent<Bullet>()._damage = _damage;
+            _bullet.GetComponent<Bullet>().Damage = _damage;
 
             if (_isPlayer)
             {
+                _bullet.GetComponent<Bullet>().IsPlayerBullet = true;
+                _bullet.layer = 7;
                 if (_player.localScale.x < 0)
                 {
                     _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
@@ -63,6 +65,7 @@ public abstract class Gun : MonoBehaviour
             }
             else
             {
+                _bullet.GetComponent<Bullet>().IsPlayerBullet = false;
                 _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
             }
         }
