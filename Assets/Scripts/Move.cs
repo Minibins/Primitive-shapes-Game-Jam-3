@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
-    public void Run(Vector2 targetVelocity, Rigidbody2D rigidbody2D)
+    private Rigidbody2D _rigidbody2D;
+    private void Start()
     {
-        rigidbody2D.velocity = targetVelocity;
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+    public void Run(Vector2 targetVelocity)
+    {
+        _rigidbody2D.velocity = targetVelocity;
     }
 }

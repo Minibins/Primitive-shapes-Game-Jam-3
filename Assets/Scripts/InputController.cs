@@ -1,3 +1,5 @@
+using System.Collections;
+
 using UnityEngine;
 
 public class InputController : MonoBehaviour
@@ -12,11 +14,12 @@ public class InputController : MonoBehaviour
     private void Start()
     {
         _shooting = _gunSwipe.GetComponent<IShooting>();
+        StartCoroutine(Shoot());
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             _shooting.Fire();
         }
@@ -25,8 +28,18 @@ public class InputController : MonoBehaviour
         {
             SettingsPanel.GetComponent<Settings>().Setting(true);
         }
-
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
+    }
+    IEnumerator Shoot()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            if(Input.GetMouseButton(0))
+            {
+                _shooting.Fire();
+            }
+        }
     }
 }

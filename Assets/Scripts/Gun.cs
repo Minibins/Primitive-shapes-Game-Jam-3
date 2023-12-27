@@ -4,19 +4,16 @@ public abstract class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private float _reloadTime;
     [SerializeField] private int _damage;
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private bool _isPlayer;
     private Transform _player;
-    private float _lastShotTime;
     private Camera _camera;
     private float _offset;
 
     private void Start()
     {
         _player = GameObject.Find("Player").transform;
-        _lastShotTime = -_reloadTime;
         _camera = Camera.main;
     }
 
@@ -43,31 +40,27 @@ public abstract class Gun : MonoBehaviour
 
     public virtual void Fire()
     {
-        if (Time.time - _lastShotTime > _reloadTime)
-        {
-            _lastShotTime = Time.time;
-            
-            GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
-            _bullet.GetComponent<Bullet>().Damage = _damage;
+        
+        GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
+        _bullet.GetComponent<Bullet>().Damage = _damage;
 
-            if (_isPlayer)
+        if (_isPlayer)
+        {
+            _bullet.GetComponent<Bullet>().IsPlayerBullet = true;
+            _bullet.layer = 7;
+            if (_player.localScale.x < 0)
             {
-                _bullet.GetComponent<Bullet>().IsPlayerBullet = true;
-                _bullet.layer = 7;
-                if (_player.localScale.x < 0)
-                {
-                    _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
-                }
-                else
-                {
-                    _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * _bulletSpeed;
-                }
+                _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
             }
             else
             {
-                _bullet.GetComponent<Bullet>().IsPlayerBullet = false;
-                _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
+                _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * _bulletSpeed;
             }
+        }
+        else
+        {
+            _bullet.GetComponent<Bullet>().IsPlayerBullet = false;
+            _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
         }
     }
     
