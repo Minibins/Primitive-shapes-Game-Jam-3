@@ -7,6 +7,7 @@ public abstract class Gun : MonoBehaviour
     [SerializeField] private float _reloadTime;
     [SerializeField] private int _damage;
     [SerializeField] private float _bulletSpeed;
+    [SerializeField] private bool _isPlayer;
     private Transform _player;
     private float _lastShotTime;
     private Camera _camera;
@@ -48,15 +49,24 @@ public abstract class Gun : MonoBehaviour
             
             GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
             _bullet.GetComponent<Bullet>()._damage = _damage;
-            
-            if (_player.localScale.x < 0)
+
+            if (_isPlayer)
             {
-                _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
+                if (_player.localScale.x < 0)
+                {
+                    _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
+                }
+                else
+                {
+                    _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * _bulletSpeed;
+                }
             }
             else
             {
-                _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * _bulletSpeed;
+                _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
             }
         }
     }
+    
+    
 }
