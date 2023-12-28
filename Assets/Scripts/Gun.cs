@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class Gun : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _spawnPoint;

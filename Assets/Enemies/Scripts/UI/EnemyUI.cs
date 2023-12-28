@@ -24,7 +24,7 @@ public class EnemyUI : Editor
 
     protected virtual void MakeUI()
     {
-        EditorGUILayout.PropertyField(TimeBeforeAttacking,new GUIContent("Время до первой атаки","Первой, после появления"));
-        EditorGUILayout.PropertyField(TimeBetweenAttacking,new GUIContent("Время между атаками","Перезарядка врага"));
+//        EditorGUILayout.PropertyField(TimeBeforeAttacking,new GUIContent("Р’СЂРµРјСЏ РґРѕ РїРµСЂРІРѕР№ Р°С‚Р°РєРё","РџРµСЂРІРѕР№, РїРѕСЃР»Рµ РїРѕСЏРІР»РµРЅРёСЏ"));
+      //  EditorGUILayout.PropertyField(TimeBetweenAttacking,new GUIContent("Р’СЂРµРјСЏ РјРµР¶РґСѓ Р°С‚Р°РєР°РјРё","РџРµСЂРµР·Р°СЂСЏРґРєР° РІСЂР°РіР°"));
     }
 }

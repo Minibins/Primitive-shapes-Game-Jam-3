@@ -3,14 +3,14 @@ using UnityEngine;
 [CustomEditor(typeof(MoveEnemy),false)]
 public class MoveEnemyUI : EnemyUI
 {
-    private SerializedProperty speed;
+    private SerializedProperty _speed;
     private void OnEnable()
     {
-        speed = FindProperty("Speed");
+        _speed = FindProperty("_speed");
     }
     protected override void MakeUI()
     {
         base.MakeUI();
-        EditorGUILayout.PropertyField(speed,new GUIContent("Скорость","Скорость движения к игроку"));
+      //  EditorGUILayout.PropertyField(_speed,new GUIContent("РЎРєРѕСЂРѕСЃС‚СЊ","РЎРєРѕСЂРѕСЃС‚СЊ РґРІРёР¶РµРЅРёСЏ Рє РёРіСЂРѕРєСѓ"));
     }
 }
