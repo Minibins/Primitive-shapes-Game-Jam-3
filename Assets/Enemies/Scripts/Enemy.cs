@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : BetterBehavior
+public abstract class Enemy : BetterBehavior
 {
     protected Transform target;
     [SerializeField] protected float timeBetweenAttacking, timeBeforeAttacking;
@@ -22,3 +22,4 @@ public class Enemy : BetterBehavior
 
     }
 }
+

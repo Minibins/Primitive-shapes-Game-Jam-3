@@ -26,7 +26,7 @@ public class InputController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SettingsPanel.GetComponent<Settings>().Setting(true);
+            SettingsPanel.GetComponent<Settings>().PauseMenu(true);
         }
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
