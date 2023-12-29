@@ -995,6 +995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothTime: 0.15
+  shakeMagnitude: 0.5
+  shakeDuration: 1
 --- !u!1 &523883492
 GameObject:
   m_ObjectHideFlags: 0
@@ -4011,7 +4013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _roomPrefab: {fileID: 6552302783837519224, guid: fceb051a3fb32c345af01747170440bb, type: 3}
   _roomsCount: 10
-  _roomSize: 30
+  _roomSize: 38
   _roomParent: {fileID: 2125064241}
   _portalPrefab: {fileID: 7413158491017720673, guid: 3fe4c8acbed528e4e8e46a9e9395f56d, type: 3}
   _shopPrefab: {fileID: 2362491398577997735, guid: feee0d4249199b14d80bf59aae98d41e, type: 3}
