@@ -58,7 +58,6 @@ public abstract class Health : MonoBehaviour
 
     public virtual void Die()
     {
-        print("Die" + gameObject.name);
         Destroy(gameObject);
     }
 }

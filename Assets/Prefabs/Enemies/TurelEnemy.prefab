@@ -68,6 +68,7 @@ MonoBehaviour:
   _heartSprites: []
   _emptyHeartSprite: {fileID: 0}
   _fullHeartSprite: {fileID: 0}
+  coin: {fileID: 80586858309446516, guid: 2dae0c27b9c951d49a05a783af934cb4, type: 3}
 --- !u!61 &1363632967249532518
 BoxCollider2D:
   m_ObjectHideFlags: 0

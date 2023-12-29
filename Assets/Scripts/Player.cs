@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float timeOfWallSpeeding = 0.3f;
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private Text _coinText;
+    [SerializeField] private int coins;
     private List<float> _multiplerSpeed = new List<float>();
     private Move _move;
     public static Transform instance;
@@ -42,6 +47,16 @@ public class Player : MonoBehaviour
             InputController._verticalInput * MoveSpeed);
         instance.localScale.Scale(_targetVelocity);
         _move.Run(_targetVelocity);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Coin"))
+        {
+            coins++;
+            _coinText.text = "Money:" + coins.ToString();
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
