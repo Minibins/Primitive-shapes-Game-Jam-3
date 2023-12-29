@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] Collider2D _collision;
+    Collider2D _collision;
     private PlayerHealth _health;
     [SerializeField] private float timeOfWallSpeeding = 0.3f;
     [SerializeField] private float _moveSpeed;
@@ -63,14 +63,21 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
-
+    bool isCollisionExitNow;
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if(_collision.OverlapCollider(new ContactFilter2D(),new Collider2D[0])>1) return;
+        if(_collision.OverlapCollider(new ContactFilter2D(),new Collider2D[1])>0) return;
+        if(isCollisionExitNow) return;
         _multiplerSpeed.Add(1.5f);
         _health.AddInvisibility(timeOfWallSpeeding);
         Invoke(nameof(ResetSpeed),timeOfWallSpeeding);
-
+        StartCoroutine(ResetCollisionExit());
+    }
+    private IEnumerator ResetCollisionExit()
+    {
+        isCollisionExitNow = true;
+        yield return new WaitForEndOfFrame();
+        isCollisionExitNow = false;
     }
     private void ResetSpeed()
     {
