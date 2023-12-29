@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] Collider2D _collision;
     private PlayerHealth _health;
     [SerializeField] private float timeOfWallSpeeding = 0.3f;
     [SerializeField] private float _moveSpeed;
@@ -32,6 +33,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        _collision= GetComponent<Collider2D>();
         _health = GetComponent<PlayerHealth>();
         instance = transform;
         _move = GetComponent<Move>();
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if(_collision.OverlapCollider(new ContactFilter2D(),new Collider2D[0])>1) return;
         _multiplerSpeed.Add(1.5f);
         _health.AddInvisibility(timeOfWallSpeeding);
         Invoke(nameof(ResetSpeed),timeOfWallSpeeding);
