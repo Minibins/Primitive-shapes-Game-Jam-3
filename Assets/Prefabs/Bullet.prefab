@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.3207547, g: 0.08018868, b: 0.08773585, a: 1}
+  m_Color: {r: 0.4811321, g: 0.265289, b: 0.14297792, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.2924528, g: 0.08139017, b: 0.08801174, a: 1}
+  m_Color: {r: 0.4811321, g: 0.265289, b: 0.14297792, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -249,7 +249,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.03096056, a: 1}
+  m_Color: {r: 1, g: 0.49365726, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   _bulletEffect:
   - {fileID: 2124649006180197360, guid: afa6fe84b51f27d4195d752284a77f71, type: 3}
   - {fileID: 2124649006180197360, guid: 684fb60d1637e59458ced9014155c2aa, type: 3}
-  Damage: 0
+  Damage: 1
   IsPlayerBullet: 0
 --- !u!50 &957453812793623106
 Rigidbody2D:
@@ -433,7 +433,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.46226418, g: 0.115566045, b: 0.12644285, a: 1}
+  m_Color: {r: 0.4811321, g: 0.265289, b: 0.14297792, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

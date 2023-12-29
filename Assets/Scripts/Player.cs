@@ -1,12 +1,12 @@
-using System;
+using MathAVM;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    private PlayerHealth _health;
     [SerializeField] private float timeOfWallSpeeding = 0.3f;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Text _coinText;
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        _health = GetComponent<PlayerHealth>();
         instance = transform;
         _move = GetComponent<Move>();
     }
@@ -43,10 +44,12 @@ public class Player : MonoBehaviour
 
     public void Move()
     {
-        Vector2 _targetVelocity = new Vector2(InputController._horizontalInput * MoveSpeed,
-            InputController._verticalInput * MoveSpeed);
-        instance.localScale.Scale(_targetVelocity);
-        _move.Run(_targetVelocity);
+        Vector2 _targetVelocity = new Vector2(InputController._horizontalInput, InputController._verticalInput);
+        if(_targetVelocity.magnitude > 0.1f)
+        {
+            instance.localScale = new Vector3(MathA.OneOrNegativeOne(_targetVelocity.x),MathA.OneOrNegativeOne(_targetVelocity.y),1);
+            _move.Run(_targetVelocity * MoveSpeed);
+        };
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -62,12 +65,12 @@ public class Player : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         _multiplerSpeed.Add(1.5f);
-        StartCoroutine(ResetSpeed(1.5f));
-    }
+        _health.AddInvisibility(timeOfWallSpeeding);
+        Invoke(nameof(ResetSpeed),timeOfWallSpeeding);
 
-    private IEnumerator ResetSpeed(float value)
+    }
+    private void ResetSpeed()
     {
-        yield return new WaitForSeconds(timeOfWallSpeeding);
-        _multiplerSpeed.Remove(value);
+        _multiplerSpeed.Remove(1.5f);
     }
 }
