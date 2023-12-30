@@ -14,8 +14,7 @@ public abstract class Enemy : BetterBehavior
     protected virtual void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        // target = Player.instance;
-        target = GameObject.Find("Player").transform;
+        target = Player.instance;
         InvokeRepeating(nameof(Attack), timeBeforeAttacking, timeBetweenAttacking);
     }
 

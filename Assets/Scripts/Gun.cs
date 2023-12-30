@@ -15,7 +15,7 @@ public class Gun : MonoBehaviour
     private Queue<float> _gunSpinGoals;
 
     public MultiplingVarieble<int> Damage;
-    private void Start()
+    void Start()
     {
         _player = GameObject.Find("Player").transform;
         _camera = Camera.main;
