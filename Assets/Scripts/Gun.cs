@@ -71,7 +71,7 @@ public class Gun : MonoBehaviour
     {
         
         GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
-        Instantiate(_sound, _bullet.transform.position, Quaternion.identity, _camera.transform);
+        Instantiate(_sound, _bullet.transform.position, Quaternion.identity, _bullet.transform);
         _bullet.GetComponent<Bullet>().Damage = (int)Damage.Variable;
 
         if (_isPlayer)

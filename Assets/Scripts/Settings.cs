@@ -13,7 +13,7 @@ public class Settings : MonoBehaviour
         _settingsPanel.SetActive(true);
         _settingsPanel.SetActive(false);
     }
-
+    
     public void PauseMenu(bool eneble)
     {
         _pauseMenu.SetActive(eneble);
