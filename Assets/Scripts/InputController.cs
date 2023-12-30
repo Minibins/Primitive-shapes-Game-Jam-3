@@ -6,6 +6,7 @@ public class InputController : MonoBehaviour
 {
     [SerializeField] private GameObject _gunSwipe;
     [SerializeField] private GameObject SettingsPanel;
+    [SerializeField] private GameObject _statsPanel;
     private IShooting _shooting;
     public static float _horizontalInput;
     public static float _verticalInput;
@@ -23,6 +24,12 @@ public class InputController : MonoBehaviour
         {
             _shooting.Fire();
         }
+
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            _statsPanel.SetActive(!_statsPanel.activeSelf);
+        }
+        
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
