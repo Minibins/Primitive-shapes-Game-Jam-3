@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.Mathematics;
 public class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject _bulletPrefab;
@@ -22,14 +23,11 @@ public class Gun : MonoBehaviour
         _gunSpinGoals = new Queue<float>();
         {
             UpdateGunGoals();
-
-            print(_gunSpinGoals.Peek());
         }
     }
 
     private void UpdateGunGoals()
-    {
-        _gunSpinGoals.Clear();
+    { 
         _gunSpinGoals.Enqueue(((transform.rotation.eulerAngles.z + 60) + 180) % 360 - 180);
         _gunSpinGoals.Enqueue(((transform.rotation.eulerAngles.z + 180) + 180) % 360 - 180);
         _gunSpinGoals.Enqueue(((transform.rotation.eulerAngles.z + 300) + 180) % 360 - 180);
@@ -55,7 +53,7 @@ public class Gun : MonoBehaviour
         float rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + _offset);
 
-        if(_gunSpinGoals.Peek()< transform.rotation.eulerAngles.z)
+        if(System.Math.Abs(System.Math.Abs(System.Math.Abs(_gunSpinGoals.Peek()) - System.Math.Abs(transform.rotation.eulerAngles.z))) < 50)
         {
             _gunSpinGoals.Dequeue();
         }
@@ -73,7 +71,7 @@ public class Gun : MonoBehaviour
         GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
         Instantiate(_sound, _bullet.transform.position, Quaternion.identity, _bullet.transform);
         _bullet.GetComponent<Bullet>().Damage = (int)Damage.Variable;
-
+        Damage.Additions.Clear();
         if (_isPlayer)
         {
             _bullet.GetComponent<Bullet>().IsPlayerBullet = true;
@@ -93,8 +91,5 @@ public class Gun : MonoBehaviour
             _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
         }
         UpdateGunGoals();
-        Damage.Additions.Clear();
     }
-    
-    
 }
