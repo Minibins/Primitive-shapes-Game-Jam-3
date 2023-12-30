@@ -611,3 +611,4 @@ MonoBehaviour:
   _damage: 1
   _bulletSpeed: 3.45
   _isPlayer: 0
+  _sound: {fileID: 1449628726130653098, guid: 94721a4ee65231746adc4e662c02212f, type: 3}
