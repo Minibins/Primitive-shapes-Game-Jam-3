@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 56063113441188133}
   - component: {fileID: 7807968540864958719}
   - component: {fileID: 1880611678212030680}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: EnemyRedCube
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2000
+  m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -292,6 +292,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttacking: 0
   timeBeforeAttacking: 0
+  _wallMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &7807968540864958719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -341,7 +344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 233490391664434882}
   - component: {fileID: 8350491215622166272}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,7 +428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3442282358517019229}
   - component: {fileID: 8920277706132489917}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2235759297512672702}
   - component: {fileID: 6807780340047867346}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Hexagon Pointed-Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
