@@ -2172,9 +2172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eba6c3587b1742ceb7eea1a5f132e564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _guns:
-  - {fileID: 771182264}
-  - {fileID: 2034920315}
+  GunItems:
+  - GunPrefab: {fileID: 771182264}
+    CanSwap: 1
+  - GunPrefab: {fileID: 2034920315}
+    CanSwap: 0
 --- !u!96 &1035136616
 TrailRenderer:
   serializedVersion: 3
@@ -4786,10 +4788,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1035136614}
     m_Modifications:
-    - target: {fileID: 4076575547129879721, guid: 5f4c2a05d7622724da7b2b49089c9ecf, type: 3}
-      propertyPath: ReloadTime
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 4934454407699670376, guid: 5f4c2a05d7622724da7b2b49089c9ecf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.20871794
@@ -4836,6 +4834,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7893294920530513418, guid: 5f4c2a05d7622724da7b2b49089c9ecf, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620367903399069470, guid: 5f4c2a05d7622724da7b2b49089c9ecf, type: 3}
+      propertyPath: CanSwipe
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5197,12 +5199,12 @@ PrefabInstance:
       value: Pistol
       objectReference: {fileID: 0}
     - target: {fileID: 1370244991006909166, guid: 58b397113adeb6047b9fc05c140912d1, type: 3}
-      propertyPath: ReloadTime
+      propertyPath: CanSwipe
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1370244991006909166, guid: 58b397113adeb6047b9fc05c140912d1, type: 3}
-      propertyPath: IsSingleGun
-      value: 1
+      propertyPath: _bulletSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1628700851193151610, guid: 58b397113adeb6047b9fc05c140912d1, type: 3}
       propertyPath: m_LocalPosition.x

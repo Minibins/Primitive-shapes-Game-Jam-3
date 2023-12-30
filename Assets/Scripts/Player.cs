@@ -1,3 +1,4 @@
+using System;
 using MathAVM;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float timeOfWallSpeeding = 0.3f;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Text _coinText;
-    [SerializeField] private int coins;
+    public int coins;
     private MultiplingVarieble<float> MoveSpeed;
     private Move _move;
     public static Transform instance;
@@ -50,6 +51,9 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+
+    
+
     bool isCollisionExitNow;
     private void OnCollisionExit2D(Collision2D collision)
     {

@@ -9,6 +9,7 @@ TagManager:
   - Grid
   - Enemy
   - Coin
+  - Gun
   layers:
   - Default
   - TransparentFX

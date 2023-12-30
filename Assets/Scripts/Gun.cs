@@ -18,8 +18,8 @@ public class Gun : MonoBehaviour
     public bool IsSingleGun;
     public float ReloadTime;
 
-    
-    
+
+
     public MultiplingVarieble<int> Damage;
     private void Start()
     {
