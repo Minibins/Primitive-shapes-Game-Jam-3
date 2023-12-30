@@ -12,24 +12,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Text _coinText;
     [SerializeField] private int coins;
-    private List<float> _multiplerSpeed = new List<float>();
+    private MultiplingVarieble<float> MoveSpeed;
     private Move _move;
     public static Transform instance;
 
-    public float MoveSpeed
-    {
-        get
-        {
-            float Multiplers = 1f;
-            foreach (var value in _multiplerSpeed)
-            {
-                Multiplers *= value;
-            }
-
-            return _moveSpeed * Multiplers;
-        }
-        set => _moveSpeed = value;
-    }
 
     private void Start()
     {
@@ -37,6 +23,7 @@ public class Player : MonoBehaviour
         _health = GetComponent<PlayerHealth>();
         instance = transform;
         _move = GetComponent<Move>();
+        MoveSpeed = new MultiplingVarieble<float>(_moveSpeed);
     }
 
     private void Update()
@@ -50,7 +37,7 @@ public class Player : MonoBehaviour
         if(_targetVelocity.magnitude > 0.1f)
         {
             instance.localScale = new Vector3(MathA.OneOrNegativeOne(_targetVelocity.x),MathA.OneOrNegativeOne(_targetVelocity.y),1);
-            _move.Run(_targetVelocity * MoveSpeed);
+            _move.Run(_targetVelocity * MoveSpeed.Variable);
         };
     }
 
@@ -68,7 +55,7 @@ public class Player : MonoBehaviour
     {
         if(_collision.OverlapCollider(new ContactFilter2D(),new Collider2D[1])>0) return;
         if(isCollisionExitNow) return;
-        _multiplerSpeed.Add(1.5f);
+        MoveSpeed.Multiplers.Add(1.5f);
         _health.AddInvisibility(timeOfWallSpeeding);
         Invoke(nameof(ResetSpeed),timeOfWallSpeeding);
         StartCoroutine(ResetCollisionExit());
@@ -81,6 +68,6 @@ public class Player : MonoBehaviour
     }
     private void ResetSpeed()
     {
-        _multiplerSpeed.Remove(1.5f);
+        MoveSpeed.Multiplers.Remove(1.5f);
     }
 }
