@@ -57,7 +57,7 @@ public class RoomsGenerator : MonoBehaviour
     
     private void SpawnEnemies(Transform roomTransform)
     {
-        int numberOfEnemies = Random.Range(1, 4);
+        int numberOfEnemies = Random.Range(4, 11);
 
         for (int i = 0; i < numberOfEnemies; i++)
         {

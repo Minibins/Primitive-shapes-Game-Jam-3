@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6273340407403749326}
   - component: {fileID: 5092248907572514057}
+  - component: {fileID: 787773106663343598}
   m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &787773106663343598
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4363413157742265458}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1edc895cfeabf0b439b83b51a9c03ae0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5882967952026506098
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8189134473217605092}
   - component: {fileID: 5416257025913305161}
+  - component: {fileID: 5896235376412484695}
   m_Layer: 6
   m_Name: Circle
   m_TagString: Untagged
@@ -278,7 +301,7 @@ Transform:
   m_GameObject: {fileID: 6424301289708078304}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.07, z: 0}
   m_LocalScale: {x: 17, y: 17, z: 17}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -336,6 +359,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5896235376412484695
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6424301289708078304}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 131dbf4118f041742b6801628009e188, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6731361973915130204
 GameObject:
   m_ObjectHideFlags: 0

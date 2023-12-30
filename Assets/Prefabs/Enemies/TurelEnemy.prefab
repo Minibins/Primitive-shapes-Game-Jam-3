@@ -608,6 +608,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 8323769400391632921, guid: 77b71e7ab28e9b146ad964a17598edc5, type: 3}
   _spawnPoint: {fileID: 5266795604791534381}
-  _damage: 2
+  _damage: 1
   _bulletSpeed: 3.45
   _isPlayer: 0

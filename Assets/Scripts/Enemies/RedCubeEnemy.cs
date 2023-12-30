@@ -9,7 +9,7 @@ public class RedCubeEnemy : Enemy
     protected override void Start()
     {
         base.Start();
-        _damage = 3;
+        _damage = 2;
         _maxSpeed = 5;
         _normalSpeed = 5;
     }
