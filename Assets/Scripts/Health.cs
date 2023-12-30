@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public abstract class Health : MonoBehaviour
 {
-    [SerializeField] private int _health;
-    [SerializeField] private int _maxHealth;
+    [SerializeField] protected int _health;
+    [SerializeField] protected int _maxHealth;
     
     [SerializeField] private Image[] _heartSprites; // Массив изображений сердец
     [SerializeField] private Image _emptyHeartSprite; // Спрайт для пустого сердца
@@ -39,19 +39,22 @@ public abstract class Health : MonoBehaviour
 
     private void UpdateHealthSprites()
     {
-        // Обновление видимости изображений в зависимости от текущего здоровья
-        for (int i = 0; i < _heartSprites.Length; i++)
+        if (_heartSprites != null)
         {
-            if (i < _health)
+            // Обновление видимости изображений в зависимости от текущего здоровья
+            for (int i = 0; i < _heartSprites.Length; i++)
             {
-                // Отображение заполненного сердца
-                _heartSprites[i].enabled = true;
-                _heartSprites[i].sprite = _fullHeartSprite.sprite; // Установка спрайта
-            }
-            else
-            {
-                // Отключение изображения для пустого сердца
-                _heartSprites[i].enabled = false;
+                if (i < _health)
+                {
+                    // Отображение заполненного сердца
+                    _heartSprites[i].enabled = true;
+                    _heartSprites[i].sprite = _fullHeartSprite.sprite; // Установка спрайта
+                }
+                else
+                {
+                    // Отключение изображения для пустого сердца
+                    _heartSprites[i].enabled = false;
+                }
             }
         }
     }

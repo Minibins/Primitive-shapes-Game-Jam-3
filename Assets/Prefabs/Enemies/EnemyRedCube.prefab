@@ -294,7 +294,7 @@ MonoBehaviour:
   timeBeforeAttacking: 0
   _wallMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 17
   _playerMask:
     serializedVersion: 2
     m_Bits: 8

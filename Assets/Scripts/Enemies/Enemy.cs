@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+using static UnityEngine.GraphicsBuffer;
+
 public abstract class Enemy : BetterBehavior
 {
     protected Rigidbody2D _rigidbody;
@@ -14,13 +16,13 @@ public abstract class Enemy : BetterBehavior
     protected virtual void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-        target = Player.instance;
-        InvokeRepeating(nameof(Attack), timeBeforeAttacking, timeBetweenAttacking);
+        target = Player.GetInstance();
+        InvokeRepeating(nameof(invokeAttack), timeBeforeAttacking, timeBetweenAttacking);
     }
 
     protected void FixedUpdate()
     {
-        Move();
+        if(Vector2.Distance(target.position,transform.position) < 40) Move();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -40,6 +42,10 @@ public abstract class Enemy : BetterBehavior
     protected virtual void CloseAttack(Collision2D other)
     {
         
+    }
+    private void invokeAttack()
+    {
+        if(Vector2.Distance(target.position,transform.position)<40) Attack();
     }
 
     protected virtual void Attack()

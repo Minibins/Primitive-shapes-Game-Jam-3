@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3000682848235044319}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2373554611171272479}
   - component: {fileID: 7676775715498260706}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Isometric Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,8 +125,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4193297798113136975}
   - component: {fileID: 8254969582369849830}
-  m_Layer: 0
-  m_Name: Circle
+  - component: {fileID: 6755791163631733158}
+  - component: {fileID: 2385197335870454914}
+  - component: {fileID: 6354153349578603283}
+  - component: {fileID: 6110263972210595420}
+  - component: {fileID: 5275021025721780064}
+  m_Layer: 4
+  m_Name: YellowCircleEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,6 +207,127 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &6755791163631733158
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070871227519949493}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.050943375, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5509434
+--- !u!95 &2385197335870454914
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070871227519949493}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7f7ecd2d43391a34b90fb55f29ef4ff6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6354153349578603283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070871227519949493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40aeac282555d0a4cba9d31495df6797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacking: 0.8333333
+  timeBeforeAttacking: 0.4166667
+  _wallMask:
+    serializedVersion: 2
+    m_Bits: 17
+  _playerMask:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!50 &6110263972210595420
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070871227519949493}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &5275021025721780064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070871227519949493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb74ee1cc54b46069acfe1d281736af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 4
+  _maxHealth: 4
+  _heartSprites: []
+  _emptyHeartSprite: {fileID: 0}
+  _fullHeartSprite: {fileID: 0}
+  coin: {fileID: 0}
 --- !u!1 &2174607674918670263
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +339,7 @@ GameObject:
   - component: {fileID: 2452111221147310976}
   - component: {fileID: 1842336664146409930}
   - component: {fileID: 6205608740961344889}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Circle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +355,7 @@ Transform:
   m_GameObject: {fileID: 2174607674918670263}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.093, y: -0.015, z: 0}
+  m_LocalPosition: {x: 0.121, y: -0.006, z: 0}
   m_LocalScale: {x: 0.29028752, y: 0.29028752, z: 0.29028752}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -300,6 +426,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a94bac330e884446b280e5b62710883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 8323769400391632921, guid: 77b71e7ab28e9b146ad964a17598edc5, type: 3}
+  _spawnPoint: {fileID: 3000682848235044319}
+  _damage: 1
+  _bulletSpeed: 10
+  _isPlayer: 0
+  _sound: {fileID: 1449628726130653098, guid: 00270130d503e754b864ba3c0d5b0a0d, type: 3}
 --- !u!1 &2603151499584183381
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6921998800373603483}
   - component: {fileID: 8148753011433384563}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Pistol (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3690777966445153838}
   - component: {fileID: 3726806978631121191}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,7 +614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557421060857885123}
   - component: {fileID: 2859825251700235740}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +698,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7402174520082055087}
   - component: {fileID: 6623368162642851196}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2056571297497197038}
   - component: {fileID: 541880347460058264}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

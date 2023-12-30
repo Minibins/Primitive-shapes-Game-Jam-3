@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using static UnityEngine.GraphicsBuffer;
 public class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject _bulletPrefab;
@@ -11,13 +12,13 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject _sound;
     private Transform _player;
     private Camera _camera;
-    private float _offset;
+    protected float _offset =0;
     private Queue<float> _gunSpinGoals;
 
     public MultiplingVarieble<int> Damage;
-    void Start()
+    void OnEnable()
     {
-        _player = GameObject.Find("Player").transform;
+        _player = Player.GetInstance();
         _camera = Camera.main;
         Damage = new MultiplingVarieble<int>(_damage);
         _gunSpinGoals = new Queue<float>();
@@ -33,22 +34,26 @@ public class Gun : MonoBehaviour
         _gunSpinGoals.Enqueue(((transform.rotation.eulerAngles.z + 300) + 180) % 360 - 180);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (_player.localScale.x < 0)
-        {
-            _offset = 180;
-        }
-        else
-        {
-            _offset = 0;
-        }
 
         WeaponTracking();
     }
 
     public virtual void WeaponTracking()
     {
+        if (_player!=null)
+        {
+            if (_player.localScale.x < 0)
+            {
+                _offset = 180;
+            }
+            else
+            {
+                _offset = 0;
+            }
+            
+        }
         Vector3 difference = _camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + _offset);

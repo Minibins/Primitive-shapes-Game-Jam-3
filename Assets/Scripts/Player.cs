@@ -1,10 +1,14 @@
 using MathAVM;
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+using static UnityEngine.GraphicsBuffer;
+
+public class Player : BetterBehavior
 {
     Collider2D _collision;
     private PlayerHealth _health;
@@ -15,7 +19,20 @@ public class Player : MonoBehaviour
     private MultiplingVarieble<float> MoveSpeed;
     private Move _move;
     public static Transform instance;
-
+    public static Transform GetInstance()
+    {
+        if (instance != null)
+        {
+            return instance;
+        }
+        else
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if(player == null) throw new Exception("Игрока по какой-то причине не нашли");
+            instance = player.transform;
+            return player.transform;
+        }
+    }
 
     private void Start()
     {
