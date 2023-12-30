@@ -4018,6 +4018,7 @@ MonoBehaviour:
   enemiesPrefabs:
   - {fileID: 1010636261041685308, guid: 3fb34a748b950294f9300410172d0108, type: 3}
   - {fileID: 1601365921787232875, guid: 70b23fdcccb5f864383ca8257b6fdb1c, type: 3}
+  - {fileID: 1601365921787232875, guid: 15e001204b09b704490baf63ad64286c, type: 3}
   _spawnedRooms: []
 --- !u!1 &2116526698
 GameObject:
