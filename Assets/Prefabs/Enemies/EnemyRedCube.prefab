@@ -295,6 +295,9 @@ MonoBehaviour:
   _wallMask:
     serializedVersion: 2
     m_Bits: 1
+  _playerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &7807968540864958719
 MonoBehaviour:
   m_ObjectHideFlags: 0
