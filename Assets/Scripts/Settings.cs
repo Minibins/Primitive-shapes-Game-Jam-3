@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 
 public class Settings : MonoBehaviour
@@ -12,6 +10,8 @@ public class Settings : MonoBehaviour
     private void Start()
     {
         _camera = Camera.main;
+        _settingsPanel.SetActive(true);
+        _settingsPanel.SetActive(false);
     }
 
     public void PauseMenu(bool eneble)
@@ -32,11 +32,6 @@ public class Settings : MonoBehaviour
     public void SettingsMenu(bool eneble)
     {
         _settingsPanel.SetActive(eneble);
-    }
-
-    public void PostProcessing(bool eneble)
-    {
-        _camera.GetComponent<PostProcessVolume>().isGlobal = eneble;
     }
 
     public void Exit()

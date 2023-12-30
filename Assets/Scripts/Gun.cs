@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private int _damage;
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private bool _isPlayer;
+    [SerializeField] private GameObject _sound;
     private Transform _player;
     private Camera _camera;
     private float _offset;
@@ -70,6 +71,7 @@ public class Gun : MonoBehaviour
     {
         
         GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
+        Instantiate(_sound, _bullet.transform.position, Quaternion.identity, _camera.transform);
         _bullet.GetComponent<Bullet>().Damage = (int)Damage.Variable;
 
         if (_isPlayer)
