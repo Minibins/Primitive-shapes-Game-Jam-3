@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 public class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject _bulletPrefab;
@@ -22,7 +23,6 @@ public class Gun : MonoBehaviour
         _gunSpinGoals = new Queue<float>();
         {
             UpdateGunGoals();
-
             print(_gunSpinGoals.Peek());
         }
     }
@@ -64,6 +64,7 @@ public class Gun : MonoBehaviour
         {
             UpdateGunGoals();
             Damage.Additions.Add(3);
+            print("Ваш пистолет заряжен");
         }
     }
 
@@ -72,7 +73,7 @@ public class Gun : MonoBehaviour
         
         GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
         Instantiate(_sound, _bullet.transform.position, Quaternion.identity, _camera.transform);
-        _bullet.GetComponent<Bullet>().Damage = (int)Damage.Variable;
+        _bullet.GetComponent<Bullet>().Damage = Convert.ToInt32( Damage.Variable);
 
         if (_isPlayer)
         {
@@ -93,7 +94,7 @@ public class Gun : MonoBehaviour
             _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
         }
         UpdateGunGoals();
-        Damage.Additions.Clear();
+        Damage.Additions = new List<float>();
     }
     
     

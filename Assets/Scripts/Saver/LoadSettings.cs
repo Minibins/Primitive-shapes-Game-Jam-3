@@ -21,6 +21,5 @@ public class LoadSettings : MonoBehaviour
     protected virtual void LoadBool()
     {
         valueBool =  PlayerPrefs.GetInt(_key) != 0;
-        print(valueBool);
     }
 }
