@@ -24,7 +24,7 @@ public class PinkCubeEnemy : RedCubeEnemy
     }
     protected override void Attack()
     {
-        if(Vector2.Distance(transform.position,target.position) < _attackRange)
+        if(Vector2.Distance(transform.position,target.position) < _attackRange&& _normalSpeed != _maxSpeed)
         {
             _anim.Play("Attack");
         }
