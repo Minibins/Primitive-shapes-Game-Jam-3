@@ -3,12 +3,12 @@ using UnityEngine;
 public class Turel : Gun, IShooting
 {
     private IShooting _shootingImplementation;
-
-    public override void Fire()
-    {
-        base.Fire();
-    }
     
+    public void SingleFire()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void WeaponTracking()
     {
         Transform _player = GameObject.Find("Player").transform;

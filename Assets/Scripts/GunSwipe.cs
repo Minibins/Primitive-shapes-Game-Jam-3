@@ -8,34 +8,26 @@ public class GunSwipe : MonoBehaviour, IShooting
 
     public void Fire()
     {
+        if(!_guns[_indexGun].GetComponent<Gun>().IsSingleGun)
+            _guns[_indexGun].GetComponent<Gun>().Fire();
+    }
+
+    public void SingleFire()
+    {
         _guns[_indexGun].GetComponent<Gun>().Fire();
     }
 
     public void SwipeUpGun()
     {
         _guns[_indexGun].SetActive(false);
-        if (_indexGun == _guns.Length)
-        {
-            _indexGun = 0;
-        }
-        else
-        {
-            _indexGun++;
-        }
+        _indexGun = (_indexGun + 1) % _guns.Length; // Используем операцию остатка от деления, чтобы обеспечить зацикливание
         _guns[_indexGun].SetActive(true);
     }
 
     public void SwipeDownGun()
     {
         _guns[_indexGun].SetActive(false);
-        if (_indexGun == 0)
-        {
-            _indexGun = _guns.Length;
-        }
-        else
-        {
-            _indexGun--;
-        }
+        _indexGun = (_indexGun - 1 + _guns.Length) % _guns.Length; // Используем операцию остатка от деления, чтобы обеспечить зацикливание
         _guns[_indexGun].SetActive(true);
     }
 }
