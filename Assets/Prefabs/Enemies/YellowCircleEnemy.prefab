@@ -279,7 +279,7 @@ MonoBehaviour:
   timeBeforeAttacking: 0.4166667
   _wallMask:
     serializedVersion: 2
-    m_Bits: 17
+    m_Bits: 1
   _playerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -432,6 +432,7 @@ MonoBehaviour:
   _bulletSpeed: 10
   _isPlayer: 0
   _sound: {fileID: 1449628726130653098, guid: 00270130d503e754b864ba3c0d5b0a0d, type: 3}
+  _canFire: 1
   IsSingleGun: 0
   ReloadTime: 0
 --- !u!1 &2603151499584183381

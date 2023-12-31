@@ -10,7 +10,7 @@ public class RedCubeEnemy : Enemy
     {
         base.Start();
         _damage = 2;
-        _maxSpeed = 5;
+        _maxSpeed = 1;
         _normalSpeed = 5;
     }
 
@@ -23,21 +23,22 @@ public class RedCubeEnemy : Enemy
         {
             _movement = MathAVM.MathA.RotatedVector(_movement,25);
             _reversedMovement = MathAVM.MathA.RotatedVector(_reversedMovement,-25);
-            if(_movement == _direction * _normalSpeed * Time.fixedDeltaTime || !CantWalk(_movement)) break;
             if(!CantWalk(_reversedMovement)) _movement = _reversedMovement;
+            if(_movement == _direction * _normalSpeed * Time.fixedDeltaTime || !CantWalk(_movement)) break;
+            Debug.DrawRay(transform.position,_movement,CantWalk(_movement) ? Color.red : Color.green);
         }
-        Debug.DrawRay(transform.position,_movement * 22);
+        
         _rigidbody.MovePosition(transform.position + _movement);
         lastPos = transform.position;
     }
 
     private bool CantWalk(Vector3 _movement)
     {
-        return (Physics2D.Raycast(transform.position + new Vector3(0.5f,0.5f,0),_movement,_normalSpeed,_wallMask) ||
-                    Physics2D.Raycast(transform.position + new Vector3(0.5f,-0.5f,0),_movement,_normalSpeed,_wallMask) ||
-                    Physics2D.Raycast(transform.position + new Vector3(-0.5f,-0.5f,0),_movement,_normalSpeed,_wallMask) ||
-                    Physics2D.Raycast(transform.position + new Vector3(-0.5f,0.5f,0),_movement,_normalSpeed,_wallMask))
-                    && !Physics2D.Raycast(transform.position,_movement,_normalSpeed,_playerMask);
+        return (Physics2D.Raycast(transform.position + new Vector3(0.5f,0.5f,0),_movement,_maxSpeed,_wallMask) ||
+                    Physics2D.Raycast(transform.position + new Vector3(0.5f,-0.5f,0),_movement,_maxSpeed,_wallMask) ||
+                    Physics2D.Raycast(transform.position + new Vector3(-0.5f,-0.5f,0),_movement,_maxSpeed,_wallMask) ||
+                    Physics2D.Raycast(transform.position + new Vector3(-0.5f,0.5f,0),_movement,_maxSpeed,_wallMask))
+                    && !Physics2D.Raycast(transform.position,_movement,_maxSpeed,_playerMask);
     }
 
     protected override void CloseAttack(Collision2D other)

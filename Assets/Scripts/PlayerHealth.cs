@@ -11,7 +11,7 @@ public class PlayerHealth : Health
     {
         _trail = GetComponent<TrailRenderer>();
     }
-    public override void ApplyDamage(int _damage)
+    public override void ApplyDamage(float _damage)
     {
         if (_isInvicible) { return; }
         base.ApplyDamage(_damage);

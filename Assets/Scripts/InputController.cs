@@ -1,4 +1,5 @@
 using System.Collections;
+
 using UnityEngine;
 
 public class InputController : MonoBehaviour
@@ -18,12 +19,11 @@ public class InputController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if(Input.GetKeyDown(KeyCode.Mouse0))
         {
             _shooting.SingleFire();
         }
-
-        if (Input.GetKey(KeyCode.Mouse0))
+        if(Input.GetKey(KeyCode.Mouse0))
         {
             _shooting.Fire();
         }
@@ -32,25 +32,25 @@ public class InputController : MonoBehaviour
         {
             _statsPanel.SetActive(!_statsPanel.activeSelf);
         }
-
+        
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SettingsPanel.GetComponent<Settings>().PauseMenu(true);
         }
-
-        float _scrollWheel = Input.GetAxis("Mouse ScrollWheel");
-
-        if (_scrollWheel > 0f)
-        {
-            _shooting.SwipeUpGun();
-        }
-        else if (_scrollWheel < 0f)
-        {
+        
+         var _scrollWheel = Input.GetAxis("Mouse ScrollWheel");
+         
+         if (_scrollWheel > 0f)
+         {
+             _shooting.SwipeUpGun();
+         }
+         else if (_scrollWheel < 0f)
+         {
             _shooting.SwipeDownGun();
-        }
-
-
+         }
+         
+         
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
     }

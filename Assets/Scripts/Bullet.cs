@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private GameObject[] _bulletEffect;
-    public int Damage;
+    public float Damage;
     public bool IsPlayerBullet;
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public abstract class Health : MonoBehaviour
 {
-    [SerializeField] protected int _health;
-    [SerializeField] protected int _maxHealth;
+    [SerializeField] protected float _health;
+    [SerializeField] protected float _maxHealth;
     
     [SerializeField] private Image[] _heartSprites; // Массив изображений сердец
     [SerializeField] private Image _emptyHeartSprite; // Спрайт для пустого сердца
@@ -16,7 +16,7 @@ public abstract class Health : MonoBehaviour
         UpdateHealthSprites();
     }
 
-    public virtual void ApplyDamage(int damage)
+    public virtual void ApplyDamage(float damage)
     {
         _health -= damage;
 
