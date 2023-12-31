@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using static UnityEngine.GraphicsBuffer;
 using Unity.VisualScripting;
+using MathAVM;
+using Microsoft.Win32.SafeHandles;
 public class Gun : MonoBehaviour
 {
     [SerializeField] protected GameObject _bulletPrefab;
@@ -12,6 +14,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private bool _isPlayer;
     [SerializeField] protected GameObject _sound;
+    [SerializeField] protected float _recoil;
     private Transform _player;
     private Camera _camera;
     public bool _canFire = true;
@@ -136,6 +139,7 @@ public class Gun : MonoBehaviour
     {
         GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
         Instantiate(_sound,_bullet.transform.position,Quaternion.identity,_bullet.transform);
+        transform.parent.position += MathA.RotatedVector(Vector2.left * _recoil*MathA.OneOrNegativeOne(_player.localScale.x < 0),transform.rotation.eulerAngles.z).ConvertTo<Vector3>();
         return _bullet;
     }
 }
