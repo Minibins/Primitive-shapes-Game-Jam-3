@@ -16,6 +16,11 @@ public class Turel : Gun, IShooting
         base.Fire();
     }
     
+    public void SingleFire()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void WeaponTracking()
     {
         try

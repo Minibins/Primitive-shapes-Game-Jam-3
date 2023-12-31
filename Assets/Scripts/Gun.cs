@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -12,8 +13,13 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject _sound;
     private Transform _player;
     private Camera _camera;
-    protected float _offset =0;
+    private bool _canFire = true;
+    private float _offset;
     private Queue<float> _gunSpinGoals;
+    public bool IsSingleGun;
+    public float ReloadTime;
+
+
 
     public MultiplingVarieble<int> Damage;
     void OnEnable()
@@ -69,14 +75,23 @@ public class Gun : MonoBehaviour
             Damage.Additions.Add(3);
         }
     }
-
     public virtual void Fire()
     {
-        
+        if (_canFire)
+        {
+            StartCoroutine(FireWithDelay());
+        }
+    }
+
+    private IEnumerator FireWithDelay()
+    {
+        _canFire = false;
+
         GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
         Instantiate(_sound, _bullet.transform.position, Quaternion.identity, _bullet.transform);
         _bullet.GetComponent<Bullet>().Damage = (int)Damage.Variable;
         Damage.Additions.Clear();
+
         if (_isPlayer)
         {
             _bullet.GetComponent<Bullet>().IsPlayerBullet = true;
@@ -95,6 +110,11 @@ public class Gun : MonoBehaviour
             _bullet.GetComponent<Bullet>().IsPlayerBullet = false;
             _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
         }
+
         UpdateGunGoals();
+
+        yield return new WaitForSeconds(ReloadTime); // Задержка между выстрелами
+
+        _canFire = true;
     }
 }

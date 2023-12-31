@@ -22,6 +22,10 @@ public class InputController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
+            _shooting.SingleFire();
+        }
+        if(Input.GetKey(KeyCode.Mouse0))
+        {
             _shooting.Fire();
         }
 
@@ -35,6 +39,19 @@ public class InputController : MonoBehaviour
         {
             SettingsPanel.GetComponent<Settings>().PauseMenu(true);
         }
+        
+         float _scrollWheel = Input.GetAxis("Mouse ScrollWheel");
+         
+         if (_scrollWheel > 0f)
+         {
+             _shooting.SwipeUpGun();
+         }
+         else if (_scrollWheel < 0f)
+         {
+            _shooting.SwipeDownGun();
+         }
+         
+         
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
     }
@@ -43,10 +60,7 @@ public class InputController : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(0.5f);
-            if(Input.GetMouseButton(0))
-            {
-                _shooting.Fire();
-            }
+
         }
     }
 }
