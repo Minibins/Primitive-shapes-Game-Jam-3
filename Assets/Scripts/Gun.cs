@@ -3,18 +3,31 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using static UnityEngine.GraphicsBuffer;
+using Unity.VisualScripting;
 public class Gun : MonoBehaviour
 {
-    [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private Transform _spawnPoint;
+    [SerializeField] protected GameObject _bulletPrefab;
+    [SerializeField] protected Transform _spawnPoint;
     [SerializeField] private float _damage;
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private bool _isPlayer;
-    [SerializeField] private GameObject _sound;
+    [SerializeField] protected GameObject _sound;
     private Transform _player;
     private Camera _camera;
     public bool _canFire = true;
-    protected float _offset;
+    protected float[] _offset = new float[2];
+    protected float OffsetValue
+    {
+        get 
+        {
+            float Oval =0;
+            foreach(float obj in _offset)
+            {
+                Oval+= obj;
+            }
+            return Oval; 
+        }
+    }
     private Queue<float> _gunSpinGoals;
     public bool IsSingleGun, IsBurstGun;
     [SerializeField] private float ReloadTime;
@@ -50,17 +63,18 @@ public class Gun : MonoBehaviour
         {
             if (_player.localScale.x < 0)
             {
-                _offset = 180;
+                _offset[0] = 180;
             }
             else
             {
-                _offset = 0;
+                _offset[0] = 0;
             }
             
         }
         Vector3 difference = _camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + _offset);
+        
+        transform.rotation = Quaternion.Euler(0f,0f,rotateZ + OffsetValue);
 
         if(System.Math.Abs(System.Math.Abs(System.Math.Abs(_gunSpinGoals.Peek()) - System.Math.Abs(transform.rotation.eulerAngles.z))) < 50)
         {
@@ -89,11 +103,12 @@ public class Gun : MonoBehaviour
         _canFire = true;
     }
 
-    public void SingleFire()
+    public virtual void SingleFire()
     {
-        GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
-        Instantiate(_sound,_bullet.transform.position,Quaternion.identity,_bullet.transform);
-        _bullet.GetComponent<Bullet>().Damage = Damage.Variable;
+        GameObject _bullet = SpawnBullet();
+        Bullet bullet = _bullet.GetComponent<Bullet>();
+        bullet.Damage = Damage.Variable;
+        bullet.Gun = this;
         Damage.Additions.Clear();
 
         if(_isPlayer)
@@ -115,5 +130,12 @@ public class Gun : MonoBehaviour
             _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
         }
         UpdateGunGoals();
+    }
+
+    protected virtual GameObject SpawnBullet()
+    {
+        GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
+        Instantiate(_sound,_bullet.transform.position,Quaternion.identity,_bullet.transform);
+        return _bullet;
     }
 }
