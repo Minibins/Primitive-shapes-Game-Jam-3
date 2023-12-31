@@ -6,7 +6,7 @@ public class Room : MonoBehaviour
     [SerializeField] private Openings _walls;
     [SerializeField] private Openings _transitions;
     public bool isShopRoom;
-    public bool isFirstRoom;
+
     public void Setup(HashSet<Vector2Int> _config)
     {
         foreach (var _wall in _walls.GetOpenings())
@@ -31,7 +31,4 @@ public class Room : MonoBehaviour
             }
         }
     }
-
-
-  
 }

@@ -14,7 +14,7 @@ public class Gun : MonoBehaviour
     private Transform _player;
     private Camera _camera;
     private bool _canFire = true;
-    private float _offset;
+    protected float _offset;
     private Queue<float> _gunSpinGoals;
     public bool IsSingleGun;
     public float ReloadTime;

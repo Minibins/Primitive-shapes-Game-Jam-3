@@ -3147,6 +3147,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a94bac330e884446b280e5b62710883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 0}
+  _spawnPoint: {fileID: 0}
+  _damage: 0
+  _bulletSpeed: 0
+  _isPlayer: 0
+  _sound: {fileID: 0}
+  IsSingleGun: 0
+  ReloadTime: 0
 --- !u!1 &1240326858
 GameObject:
   m_ObjectHideFlags: 0
@@ -4770,6 +4778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _roomPrefab: {fileID: 6552302783837519224, guid: fceb051a3fb32c345af01747170440bb, type: 3}
+  _lastRoomPrefab: {fileID: 771473329920436621, guid: cd206cc106ef03446afa2fd81c928081, type: 3}
   _roomsCount: 23
   _roomSize: 38
   _roomParent: {fileID: 2125064241}
