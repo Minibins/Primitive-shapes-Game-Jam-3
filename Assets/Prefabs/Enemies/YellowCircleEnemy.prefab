@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 5275021025721780064}
   m_Layer: 4
   m_Name: YellowCircleEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -279,7 +279,7 @@ MonoBehaviour:
   timeBeforeAttacking: 0.4166667
   _wallMask:
     serializedVersion: 2
-    m_Bits: 17
+    m_Bits: 1
   _playerMask:
     serializedVersion: 2
     m_Bits: 8
@@ -327,7 +327,7 @@ MonoBehaviour:
   _heartSprites: []
   _emptyHeartSprite: {fileID: 0}
   _fullHeartSprite: {fileID: 0}
-  coin: {fileID: 0}
+  coin: {fileID: 80586858309446516, guid: 2dae0c27b9c951d49a05a783af934cb4, type: 3}
 --- !u!1 &2174607674918670263
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,6 +432,9 @@ MonoBehaviour:
   _bulletSpeed: 10
   _isPlayer: 0
   _sound: {fileID: 1449628726130653098, guid: 00270130d503e754b864ba3c0d5b0a0d, type: 3}
+  _canFire: 1
+  IsSingleGun: 0
+  ReloadTime: 0
 --- !u!1 &2603151499584183381
 GameObject:
   m_ObjectHideFlags: 0

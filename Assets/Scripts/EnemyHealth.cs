@@ -3,7 +3,7 @@
 public class EnemyHealth: Health
     {
         [SerializeField] private GameObject coin;
-    public override void ApplyDamage(int _damage)
+    public override void ApplyDamage(float _damage)
     {
         _health -= _damage;
 

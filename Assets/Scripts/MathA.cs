@@ -43,6 +43,10 @@ namespace MathAVM
         {
             return number>=0 ? (sbyte)1 : (sbyte)-1;
         }
+        public static sbyte OneOrNegativeOne(bool boolean)
+        {
+            return !boolean ? (sbyte)1 : (sbyte)-1;
+        }
     }
     
 }

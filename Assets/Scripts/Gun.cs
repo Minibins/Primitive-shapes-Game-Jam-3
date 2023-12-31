@@ -7,26 +7,24 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _spawnPoint;
-    [SerializeField] private int _damage;
+    [SerializeField] private float _damage;
     [SerializeField] private float _bulletSpeed;
     [SerializeField] private bool _isPlayer;
     [SerializeField] private GameObject _sound;
     private Transform _player;
     private Camera _camera;
-    private bool _canFire = true;
-    private float _offset;
+    public bool _canFire = true;
+    protected float _offset;
     private Queue<float> _gunSpinGoals;
-    public bool IsSingleGun;
-    public float ReloadTime;
+    public bool IsSingleGun, IsBurstGun;
+    [SerializeField] private float ReloadTime;
 
-
-
-    public MultiplingVarieble<int> Damage;
+    public MultiplingVarieble<float> Damage;
     void OnEnable()
     {
         _player = Player.GetInstance();
         _camera = Camera.main;
-        Damage = new MultiplingVarieble<int>(_damage);
+        Damage = new MultiplingVarieble<float>(_damage);
         _gunSpinGoals = new Queue<float>();
         {
             UpdateGunGoals();
@@ -86,17 +84,23 @@ public class Gun : MonoBehaviour
     private IEnumerator FireWithDelay()
     {
         _canFire = false;
+        SingleFire();
+        yield return new WaitForSeconds(ReloadTime); // Задержка между выстрелами
+        _canFire = true;
+    }
 
+    public void SingleFire()
+    {
         GameObject _bullet = Instantiate(_bulletPrefab, _spawnPoint.position, _spawnPoint.rotation);
-        Instantiate(_sound, _bullet.transform.position, Quaternion.identity, _bullet.transform);
-        _bullet.GetComponent<Bullet>().Damage = (int)Damage.Variable;
+        Instantiate(_sound,_bullet.transform.position,Quaternion.identity,_bullet.transform);
+        _bullet.GetComponent<Bullet>().Damage = Damage.Variable;
         Damage.Additions.Clear();
 
-        if (_isPlayer)
+        if(_isPlayer)
         {
             _bullet.GetComponent<Bullet>().IsPlayerBullet = true;
             _bullet.layer = 7;
-            if (_player.localScale.x < 0)
+            if(_player.localScale.x < 0)
             {
                 _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
             }
@@ -110,11 +114,6 @@ public class Gun : MonoBehaviour
             _bullet.GetComponent<Bullet>().IsPlayerBullet = false;
             _bullet.GetComponent<Rigidbody2D>().velocity = _bullet.transform.right * -_bulletSpeed;
         }
-
         UpdateGunGoals();
-
-        yield return new WaitForSeconds(ReloadTime); // Задержка между выстрелами
-
-        _canFire = true;
     }
 }

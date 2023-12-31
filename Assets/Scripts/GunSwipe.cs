@@ -10,48 +10,42 @@ public class GunSwipe : MonoBehaviour, IShooting
 
     public void Fire()
     {
-      //  if (_guns[_indexGun].GetComponent<Gun>().CanSwipe)
         if (GunItems[_indexGun].CanSwap)
         {
-           // if (!_guns[_indexGun].GetComponent<Gun>().IsSingleGun)
-            if (!GunItems[_indexGun].GunPrefab.GetComponent<Gun>().IsSingleGun)
-             //   _guns[_indexGun].GetComponent<Gun>().Fire();
-                GunItems[_indexGun].GunPrefab.GetComponent<Gun>().Fire();
+            if (GunItems[_indexGun].Gun.IsBurstGun)
+                GunItems[_indexGun].Gun.Fire();
         }
     } 
 
     public void SingleFire()
     {
-        if (GunItems[_indexGun].CanSwap)
+        if (GunItems[_indexGun].CanSwap&& GunItems[_indexGun].Gun.IsSingleGun)
         {
-            GunItems[_indexGun].GunPrefab.GetComponent<Gun>().Fire();
+            GunItems[_indexGun].Gun.SingleFire();
         }
     }
 
     public void SwipeUpGun()
     {
-        int originalIndex = _indexGun;
-        do
-        {
-            _indexGun = (_indexGun + 1) % GunItems.Length;
-        } while (!GunItems[_indexGun].CanSwap && _indexGun != originalIndex);
-
-        GunItems[originalIndex].GunPrefab.SetActive(false);
-        GunItems[_indexGun].GunPrefab.SetActive(true);
+        SwipeGun(true);
     }
 
     public void SwipeDownGun()
     {
-        int originalIndex = _indexGun;
+        SwipeGun(false);
+    }
+    public void SwipeGun(bool direction)
+    {
+        var originalIndex = _indexGun;
         do
         {
-            _indexGun = (_indexGun - 1 + GunItems.Length) % GunItems.Length;
-        } while (!GunItems[_indexGun].CanSwap && _indexGun != originalIndex);
+            _indexGun = (_indexGun + MathAVM.MathA.OneOrNegativeOne(direction) + GunItems.Length) % GunItems.Length;
+        } while(!GunItems[_indexGun].CanSwap && _indexGun != originalIndex);
 
         GunItems[originalIndex].GunPrefab.SetActive(false);
         GunItems[_indexGun].GunPrefab.SetActive(true);
+        GunItems[_indexGun].Gun._canFire = true;
     }
-
 }
 
 
@@ -59,5 +53,6 @@ public class GunSwipe : MonoBehaviour, IShooting
 public class GunItem
 {
     public GameObject GunPrefab;
+    public Gun Gun;
     public bool CanSwap;
 }

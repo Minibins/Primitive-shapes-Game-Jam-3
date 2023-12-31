@@ -15,7 +15,6 @@ public class InputController : MonoBehaviour
     private void Start()
     {
         _shooting = _gunSwipe.GetComponent<IShooting>();
-        StartCoroutine(Shoot());
     }
 
     private void Update()
@@ -40,7 +39,7 @@ public class InputController : MonoBehaviour
             SettingsPanel.GetComponent<Settings>().PauseMenu(true);
         }
         
-         float _scrollWheel = Input.GetAxis("Mouse ScrollWheel");
+         var _scrollWheel = Input.GetAxis("Mouse ScrollWheel");
          
          if (_scrollWheel > 0f)
          {
@@ -54,13 +53,5 @@ public class InputController : MonoBehaviour
          
         _horizontalInput = Input.GetAxis("Horizontal");
         _verticalInput = Input.GetAxis("Vertical");
-    }
-    IEnumerator Shoot()
-    {
-        while(true)
-        {
-            yield return new WaitForSeconds(0.5f);
-
-        }
     }
 }
