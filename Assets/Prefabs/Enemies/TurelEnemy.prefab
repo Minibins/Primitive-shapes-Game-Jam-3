@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc15ce439e4f3b44d8bf26c37e927259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacking: 0.78
-  timeBeforeAttacking: 0
+  timeBetweenAttacking: 0.8
+  timeBeforeAttacking: 0.4
 --- !u!114 &7276320678328175656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,3 +612,8 @@ MonoBehaviour:
   _bulletSpeed: 3.45
   _isPlayer: 0
   _sound: {fileID: 1449628726130653098, guid: 94721a4ee65231746adc4e662c02212f, type: 3}
+  _recoil: 0
+  _canFire: 1
+  IsSingleGun: 0
+  IsBurstGun: 0
+  ReloadTime: 0
