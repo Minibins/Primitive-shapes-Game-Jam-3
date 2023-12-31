@@ -23,7 +23,7 @@ public class Turel : Gun, IShooting
         {
             Vector3 difference = _target.position - transform.position;
             float rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + _offset);
+            transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + OffsetValue);
         }
         catch
         {

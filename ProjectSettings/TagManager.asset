@@ -11,7 +11,7 @@ TagManager:
   - Coin
   - Gun
   - Wall
-  - BossHealth
+  - Bullet
   layers:
   - Default
   - TransparentFX

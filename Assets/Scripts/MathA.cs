@@ -48,7 +48,18 @@ namespace MathAVM
             return !boolean ? (sbyte)1 : (sbyte)-1;
         }
     }
-    
+    [System.Serializable]
+    public class SinusWave
+    {
+        [SerializeField] public float Amplitude, Length, CurrentPos;
+        public float Value
+        { get { return ValueIn(CurrentPos); } }
+
+        public float ValueIn(float Pos)
+        {
+            return Mathf.Sin(Pos * Length) * Amplitude;
+        }
+    }
 }
 
 

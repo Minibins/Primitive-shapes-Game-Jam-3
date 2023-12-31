@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 3247429450821622489}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,6 +274,7 @@ MonoBehaviour:
   _bulletEffect:
   - {fileID: 2124649006180197360, guid: afa6fe84b51f27d4195d752284a77f71, type: 3}
   - {fileID: 2124649006180197360, guid: 684fb60d1637e59458ced9014155c2aa, type: 3}
+  - {fileID: 4999876915561011013, guid: 860993be387157247b112fda11259d4a, type: 3}
   Damage: 1
   IsPlayerBullet: 0
 --- !u!50 &957453812793623106

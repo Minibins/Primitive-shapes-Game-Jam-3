@@ -7,6 +7,6 @@ public class YellowCircleGun : Turel
     protected override void Start()
     {
         base.Start();
-        _offset = 180;
+        _offset[1] = 180;
     }
 }

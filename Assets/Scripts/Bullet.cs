@@ -5,6 +5,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] private GameObject[] _bulletEffect;
     public float Damage;
     public bool IsPlayerBullet;
+    private Gun _gun;
+
+    public Gun Gun { set => _gun = value; }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -14,33 +17,29 @@ public class Bullet : MonoBehaviour
 
     private void OnSomethinEnter2D(Collider2D other)
     {
-        if(IsPlayerBullet)
+        
+        if(other.gameObject.CompareTag("Enemy")&&IsPlayerBullet)
         {
-            if(other.gameObject.CompareTag("Enemy"))
-            {
-                other.gameObject.GetComponent<EnemyHealth>().ApplyDamage(Damage);
-                Instantiate(_bulletEffect[0], transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
-            else if(!other.gameObject.CompareTag("Coin"))
-            {
-                Instantiate(_bulletEffect[1], transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
+            other.gameObject.GetComponent<EnemyHealth>().ApplyDamage(Damage);
+            Instantiate(_bulletEffect[0], transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
-        else
+        else if(other.CompareTag("Player") && !IsPlayerBullet)
         {
-            if (other.gameObject.CompareTag("Player"))
-            {
-                other.gameObject.GetComponent<PlayerHealth>().ApplyDamage(Damage);
-                Instantiate(_bulletEffect[0], transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
-            else  if(!other.gameObject.CompareTag("Coin"))
-            {
-                Instantiate(_bulletEffect[1], transform.position, Quaternion.identity);
-                Destroy(gameObject);
-            }
+            other.gameObject.GetComponent<PlayerHealth>().ApplyDamage(Damage);
+            Instantiate(_bulletEffect[0],transform.position,Quaternion.identity);
+            Destroy(gameObject);
+        }
+        else if(other.gameObject.CompareTag("Bullet")&& IsPlayerBullet)
+        {
+            Instantiate(_bulletEffect[2],transform.position,Quaternion.identity);
+            _gun.Damage.Additions.Add(Damage*2);
+            Destroy(gameObject);
+        }
+        else if(!other.gameObject.CompareTag("Coin"))
+        {
+            Instantiate(_bulletEffect[1], transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 
