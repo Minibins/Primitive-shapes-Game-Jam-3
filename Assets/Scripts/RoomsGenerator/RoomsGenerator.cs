@@ -15,7 +15,7 @@ public class RoomsGenerator : MonoBehaviour
 
     public List<Room> _spawnedRooms = new List<Room>();
 
-    private void Start()
+    public void Start()
     {
         StartCoroutine(Generate());
     }
@@ -30,11 +30,11 @@ public class RoomsGenerator : MonoBehaviour
         foreach (var pos in keysList)
         {
             var roomPrefab = (pos == keysList[keysList.Count - 1]) ? _lastRoomPrefab : _roomPrefab;
-            var room = Instantiate(roomPrefab, new Vector3(pos.x, pos.y) * _roomSize, Quaternion.identity, _roomParent);
+            var room = Instantiate(roomPrefab, new Vector3(pos.x, pos.y) * _roomSize+transform.position, Quaternion.identity, _roomParent);
 
             room.Setup(infos[pos]);
             _spawnedRooms.Add(room);
-            yield return 0;
+            yield return new WaitForSeconds(0.2f);
         }
 
         var eligibleRooms = _spawnedRooms.GetRange(1, _spawnedRooms.Count - 2);

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _bulletEffect;
+    [SerializeField] protected GameObject[] _bulletEffect;
     public float Damage;
     public bool IsPlayerBullet;
     private Gun _gun;
@@ -30,25 +30,33 @@ public class Bullet : MonoBehaviour
             Instantiate(_bulletEffect[0],transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
-        else if(other.gameObject.CompareTag("Bullet")&& IsPlayerBullet)
+        else if(other.gameObject.CompareTag("Bullet"))
         {
-            Instantiate(_bulletEffect[2],transform.position,Quaternion.identity);
-            _gun.Damage.Additions.Add(Damage*2);
-            Destroy(gameObject);
+            OtherBulletCollision();
         }
         else if(!other.gameObject.CompareTag("Coin"))
         {
             Instantiate(_bulletEffect[1], transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    protected virtual void OtherBulletCollision()
+    {
+        if(IsPlayerBullet)
+        {
+            Instantiate(_bulletEffect[2],transform.position,Quaternion.identity);
+            _gun.Damage.Additions.Add(Damage * 2);
+        }
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         OnSomethinEnter2D(other.collider);
-        if(!other.gameObject.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
     }
 }

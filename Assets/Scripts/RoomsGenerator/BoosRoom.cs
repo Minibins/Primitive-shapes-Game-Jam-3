@@ -8,6 +8,7 @@ public class BoosRoom : Room
     [SerializeField] private GameObject[] _bosses;
     
     [SerializeField] private Doors _doors;
+    [SerializeField] GameObject portalPrefab;
 
     private void Start()
     {
@@ -29,5 +30,7 @@ public class BoosRoom : Room
     public void BossDie()
     {
         _doors.OpenDoor();
+        Instantiate(portalPrefab, transform.position, Quaternion.identity);
+
     }
 }

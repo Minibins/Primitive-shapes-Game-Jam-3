@@ -170,8 +170,10 @@ MonoBehaviour:
   - {fileID: 3807058241314949087}
   - {fileID: 9214197549456428772}
   _items:
-  - {fileID: 7249756925190656475, guid: db577e0c8e3002d46aac9f95f6a6b629, type: 3}
   - {fileID: 7893294920530513418, guid: b13aec4fcee195b45834e11ffd613cc9, type: 3}
+  - {fileID: 7249756925190656475, guid: db577e0c8e3002d46aac9f95f6a6b629, type: 3}
+  - {fileID: 7249756925190656475, guid: db577e0c8e3002d46aac9f95f6a6b629, type: 3}
+  - {fileID: 7249756925190656475, guid: db577e0c8e3002d46aac9f95f6a6b629, type: 3}
 --- !u!1 &2685141851840332755
 GameObject:
   m_ObjectHideFlags: 0

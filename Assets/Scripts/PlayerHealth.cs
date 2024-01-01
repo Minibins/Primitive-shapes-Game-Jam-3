@@ -26,7 +26,7 @@ public class PlayerHealth : Health
     {
         LosePanel.SetActive(true);
     }
-    public void AddInvisibility(float time)
+    public override void AddInvisibility(float time)
     {
         _isInvicible = true;
         _trail.startColor = Color.yellow;

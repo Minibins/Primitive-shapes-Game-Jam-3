@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 56063113441188133}
   - component: {fileID: 7807968540864958719}
   - component: {fileID: 1880611678212030680}
+  - component: {fileID: -5175831338579035751}
   m_Layer: 4
   m_Name: EnemyRedCube
   m_TagString: Enemy
@@ -290,6 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea53f8219c180ff4f92bfb42621e31d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxSpeed: 5
+  _normalSpeed: 5
   timeBetweenAttacking: 0
   timeBeforeAttacking: 0
   _wallMask:
@@ -337,6 +340,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5175831338579035751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601365921787232875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0a0bd851121e24eb22761463c19c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 50
+  timeOfWallSpeeding: 0.3
 --- !u!1 &1808459763350549861
 GameObject:
   m_ObjectHideFlags: 0
