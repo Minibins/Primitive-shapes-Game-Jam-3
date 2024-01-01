@@ -478,10 +478,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f31e9316d2604202a3d46789b9053b76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxSpeed: 10
+  _normalSpeed: 10
   timeBetweenAttacking: 1
   timeBeforeAttacking: 1
   CanMove: 1
   _bossRoom: {fileID: 0}
+  AttackTypes: 2
 --- !u!114 &6349196877862075338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,7 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 8323769400391632921, guid: 77b71e7ab28e9b146ad964a17598edc5, type: 3}
   _spawnPoint: {fileID: 8351224888011917596}
-  _damage: 1
+  _damage: -1.5
   _bulletSpeed: 5
   _isPlayer: 0
   _sound: {fileID: 1449628726130653098, guid: 94721a4ee65231746adc4e662c02212f, type: 3}
@@ -523,7 +526,12 @@ MonoBehaviour:
   IsSingleGun: 0
   IsBurstGun: 0
   ReloadTime: 3
-  _spawnRadius: 0
+  _spawnRadius: 2
+  _bulletPrefabs:
+  - {fileID: 8323769400391632921, guid: 34842620794215d4a85fb29d1813efb4, type: 3}
+  - {fileID: 8323769400391632921, guid: 6d804e713b3df4d4b987420e5c6fafdd, type: 3}
+  - {fileID: 8323769400391632921, guid: 22c79772be2bd8d4b9b96de1c526e005, type: 3}
+  - {fileID: 8323769400391632921, guid: 5b53b378a1839694d9b81876935f54f3, type: 3}
 --- !u!1 &9060120399278014095
 GameObject:
   m_ObjectHideFlags: 0
