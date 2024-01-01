@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TurelEnemy : Enemy
 {
-    IShooting _gun;
+   private IShooting _gun;
     protected override void Start()
     {
         base.Start();

@@ -4,6 +4,6 @@
     {
        //base.Die();
        Destroy(gameObject);
-       GetComponent<BossEnemy>()._boosRoom.BossDie();
+       GetComponent<BossEnemy>()._bossRoom.BossDie();
     }
 }

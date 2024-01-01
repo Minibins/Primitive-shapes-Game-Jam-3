@@ -11,11 +11,11 @@ public class Gun : MonoBehaviour
     [SerializeField] protected GameObject _bulletPrefab;
     [SerializeField] protected Transform _spawnPoint;
     [SerializeField] private float _damage;
-    [SerializeField] private float _bulletSpeed;
+    [SerializeField] protected float _bulletSpeed;
     [SerializeField] private bool _isPlayer;
     [SerializeField] protected GameObject _sound;
     [SerializeField] protected float _recoil;
-    private Transform _player;
+    protected Transform _player;
     private Camera _camera;
     public bool _canFire = true;
     protected float[] _offset = new float[2];
@@ -102,7 +102,7 @@ public class Gun : MonoBehaviour
     {
         _canFire = false;
         SingleFire();
-        yield return new WaitForSeconds(ReloadTime); // Задержка между выстрелами
+        yield return new WaitForSeconds(ReloadTime);
         _canFire = true;
     }
 

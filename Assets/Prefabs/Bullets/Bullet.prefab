@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3678214812956045347}
   - component: {fileID: 3633108945718178464}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6415889242678600766}
   - component: {fileID: 3080837373408413039}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 957453812793623106}
   - component: {fileID: 5336408372680155168}
   - component: {fileID: 3247429450821622489}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -370,7 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5169308477184761984}
   - component: {fileID: 1536905390455542359}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2128,7 +2128,10 @@ MonoBehaviour:
   _transitions: {fileID: 41877068695708011}
   isShopRoom: 0
   _bosses:
-  - {fileID: 1601365921787232875, guid: eed48ad7dda83eb498ba438cfd107b72, type: 3}
+  - {fileID: 1601365921787232875, guid: 95aae80fc6f4bdf489bd3a574b47641d, type: 3}
+  _bossIcons:
+  - {fileID: 21300000, guid: 73eab687c8d20ed41b020e2f706aee1d, type: 3}
+  _bossIcon: {fileID: 0}
   _doors: {fileID: 8457035076073879898}
 --- !u!1 &4867929757109537537
 GameObject:
