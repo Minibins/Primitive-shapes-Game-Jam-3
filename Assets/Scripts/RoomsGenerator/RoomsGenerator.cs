@@ -30,7 +30,8 @@ public class RoomsGenerator : MonoBehaviour
         foreach (var pos in keysList)
         {
             var roomPrefab = (pos == keysList[keysList.Count - 1]) ? _lastRoomPrefab : _roomPrefab;
-            var room = Instantiate(roomPrefab, new Vector3(pos.x, pos.y) * _roomSize+transform.position, Quaternion.identity, _roomParent);
+            var room = Instantiate(roomPrefab, new Vector3(pos.x, pos.y) * _roomSize + transform.position,
+                Quaternion.identity, _roomParent);
 
             room.Setup(infos[pos]);
             _spawnedRooms.Add(room);
@@ -39,7 +40,7 @@ public class RoomsGenerator : MonoBehaviour
 
         var eligibleRooms = _spawnedRooms.GetRange(1, _spawnedRooms.Count - 2);
         var randomRoom = eligibleRooms[Random.Range(0, eligibleRooms.Count)];
-        
+
 
         if (!randomRoom.isShopRoom)
         {
@@ -50,7 +51,7 @@ public class RoomsGenerator : MonoBehaviour
         {
             if (!_spawnedRooms[i].isShopRoom)
             {
-         //       SpawnEnemies(_spawnedRooms[i].transform);
+                SpawnEnemies(_spawnedRooms[i].transform);
             }
         }
     }
@@ -63,11 +64,12 @@ public class RoomsGenerator : MonoBehaviour
         {
             GameObject enemyPrefab = enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)];
 
-            Vector3 randomPosition = roomTransform.position + new Vector3(Random.Range(-9f, 9f), Random.Range(-9f, 9f), 0f);
+            Vector3 randomPosition =
+                roomTransform.position + new Vector3(Random.Range(-9f, 9f), Random.Range(-9f, 9f), 0f);
             Instantiate(enemyPrefab, randomPosition, Quaternion.identity, roomTransform);
         }
     }
-    
+
     private void SpawnRandomShop(Room _room)
     {
         Instantiate(_shopPrefab, _room.gameObject.transform.position, Quaternion.identity, _room.gameObject.transform);

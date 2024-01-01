@@ -60,6 +60,7 @@ public class Gun : MonoBehaviour
         WeaponTracking();
     }
 
+    float rotateZ;
     public virtual void WeaponTracking()
     {
         if (_player!=null)
@@ -74,8 +75,15 @@ public class Gun : MonoBehaviour
             }
             
         }
-        Vector3 difference = _camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        if (!InputController.IssAndroid)
+        {
+            Vector3 difference = _camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        }
+        else
+        {
+            rotateZ = Mathf.Atan2(InputController._verticalJoystickInput, InputController._horizontalJoystickInput) * Mathf.Rad2Deg;
+        }
         
         transform.rotation = Quaternion.Euler(0f,0f,rotateZ + OffsetValue);
 
