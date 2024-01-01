@@ -68,7 +68,6 @@ public class BossAttack : Gun, IShooting
     }
     private void BulletSingleAttack()
     {
-        // Стреляем одной пулей в сторону игрока
         GameObject singleBullet = Instantiate(_bulletPrefabs[0], transform.position, Quaternion.identity);
         
         
@@ -133,10 +132,7 @@ public class BossAttack : Gun, IShooting
             Instantiate(_sound, _bullet.transform.position, Quaternion.identity, _bullet.transform);
 
             _bullet.GetComponent<Bullet>().IsPlayerBullet = false;
-
-          // Vector3 bulletDirection = new Vector3(x, y, 0f);
-          //  _bullet.GetComponent<Rigidbody2D>().velocity = bulletDirection.normalized * _bulletSpeed;
-
+            
             _bullet.GetComponent<Bullet>().Damage = 1;
             Damage.Additions.Clear();
         }
