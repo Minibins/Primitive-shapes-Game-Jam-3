@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class GunSwipe : MonoBehaviour, IShooting
 {
    // [SerializeField] private GameObject[] _guns;
     private int _indexGun;
     private IShooting _shootingImplementation;
-    [SerializeField] private Image _swipeGunButtonImage;
 
     public GunItem[] GunItems;
 
@@ -46,7 +44,6 @@ public class GunSwipe : MonoBehaviour, IShooting
 
         GunItems[originalIndex].GunPrefab.SetActive(false);
         GunItems[_indexGun].GunPrefab.SetActive(true);
-        _swipeGunButtonImage.sprite = GunItems[_indexGun].Icon;
         GunItems[_indexGun].Gun._canFire = true;
     }
 }
@@ -58,5 +55,4 @@ public class GunItem
     public GameObject GunPrefab;
     public Gun Gun;
     public bool CanSwap;
-    public Sprite Icon;
 }
