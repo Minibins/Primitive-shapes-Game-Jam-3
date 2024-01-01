@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7807968540864958719}
   - component: {fileID: 964540192533555907}
   - component: {fileID: 6923624512677763114}
+  - component: {fileID: -2892799888409016011}
   m_Layer: 4
   m_Name: EnemyPinkCube
   m_TagString: Enemy
@@ -290,8 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb74ee1cc54b46069acfe1d281736af0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 2
-  _maxHealth: 2
+  _health: 3
+  _maxHealth: 3
   _heartSprites: []
   _emptyHeartSprite: {fileID: 0}
   _fullHeartSprite: {fileID: 0}
@@ -329,6 +330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 185ae6fe5cb6db04084f159c2c166771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxSpeed: 5
+  _normalSpeed: 5
   timeBetweenAttacking: 1.14
   timeBeforeAttacking: 0
   _wallMask:
@@ -338,6 +341,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _attackRange: 1.86
+--- !u!114 &-2892799888409016011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601365921787232875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0a0bd851121e24eb22761463c19c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 50
+  timeOfWallSpeeding: 0.3
 --- !u!1 &1721703581879300997
 GameObject:
   m_ObjectHideFlags: 0

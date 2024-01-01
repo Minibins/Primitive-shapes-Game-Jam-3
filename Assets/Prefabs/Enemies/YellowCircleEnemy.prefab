@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 6354153349578603283}
   - component: {fileID: 6110263972210595420}
   - component: {fileID: 5275021025721780064}
+  - component: {fileID: -8558380390511677233}
   m_Layer: 4
   m_Name: YellowCircleEnemy
   m_TagString: Enemy
@@ -275,6 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40aeac282555d0a4cba9d31495df6797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxSpeed: 5
+  _normalSpeed: 5
   timeBetweenAttacking: 0.8333333
   timeBeforeAttacking: 0.4166667
   _wallMask:
@@ -328,6 +331,20 @@ MonoBehaviour:
   _emptyHeartSprite: {fileID: 0}
   _fullHeartSprite: {fileID: 0}
   coin: {fileID: 80586858309446516, guid: 2dae0c27b9c951d49a05a783af934cb4, type: 3}
+--- !u!114 &-8558380390511677233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070871227519949493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0a0bd851121e24eb22761463c19c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 50
+  timeOfWallSpeeding: 0.3
 --- !u!1 &2174607674918670263
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,8 +449,10 @@ MonoBehaviour:
   _bulletSpeed: 10
   _isPlayer: 0
   _sound: {fileID: 1449628726130653098, guid: 00270130d503e754b864ba3c0d5b0a0d, type: 3}
+  _recoil: 0
   _canFire: 1
   IsSingleGun: 0
+  IsBurstGun: 0
   ReloadTime: 0
 --- !u!1 &2603151499584183381
 GameObject:

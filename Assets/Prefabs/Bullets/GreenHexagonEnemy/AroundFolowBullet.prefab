@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 957453812793623106}
   - component: {fileID: 5336408372680155168}
   - component: {fileID: 3247429450821622489}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AroundFolowBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -104,10 +104,10 @@ MonoBehaviour:
   - {fileID: 2124649006180197360, guid: afa6fe84b51f27d4195d752284a77f71, type: 3}
   - {fileID: 2124649006180197360, guid: 684fb60d1637e59458ced9014155c2aa, type: 3}
   - {fileID: 4999876915561011013, guid: 860993be387157247b112fda11259d4a, type: 3}
-  Damage: 0
+  Damage: 1
   IsPlayerBullet: 0
-  IsFolow: 0
-  FollowSpeed: 0
+  IsFolow: 1
+  FollowSpeed: 418
   targetTransform: {fileID: 0}
 --- !u!50 &957453812793623106
 Rigidbody2D:

@@ -104,7 +104,7 @@ MonoBehaviour:
   - {fileID: 2124649006180197360, guid: afa6fe84b51f27d4195d752284a77f71, type: 3}
   - {fileID: 2124649006180197360, guid: 684fb60d1637e59458ced9014155c2aa, type: 3}
   - {fileID: 4999876915561011013, guid: 860993be387157247b112fda11259d4a, type: 3}
-  Damage: 0
+  Damage: 1
   IsPlayerBullet: 0
   IsAround: 0
   RotationSpeed: 50

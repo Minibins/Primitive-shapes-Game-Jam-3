@@ -21,6 +21,10 @@ public class PinkCubeEnemy : RedCubeEnemy
         {
             base.Move();
         }
+        else
+        {
+            _move.Run(Vector2.zero);
+        }
     }
     protected override void Attack()
     {

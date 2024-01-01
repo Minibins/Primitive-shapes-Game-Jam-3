@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Enemy : BetterBehavior
 {
-    protected Rigidbody2D _rigidbody;
+    protected Move _move;
     protected int _damage;
     [SerializeField] protected float _maxSpeed = 5f;
     [SerializeField] protected float _normalSpeed = 5f;
@@ -12,7 +12,7 @@ public abstract class Enemy : BetterBehavior
 
     protected virtual void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        _move = GetComponent<Move>();
         target = Player.GetInstance();
         InvokeRepeating(nameof(invokeAttack), timeBeforeAttacking, timeBetweenAttacking);
     }

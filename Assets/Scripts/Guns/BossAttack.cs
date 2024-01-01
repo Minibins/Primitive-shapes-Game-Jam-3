@@ -109,7 +109,7 @@ public class BossAttack : Gun, IShooting
     }
     private void BulletAroundFolowAttack()
     {
-        int numberOfBullets = 8;
+        int numberOfBullets = 3;
 
         for (int i = 0; i < numberOfBullets; i++)
         {
@@ -117,15 +117,15 @@ public class BossAttack : Gun, IShooting
 
             float radianAngle = Mathf.Deg2Rad * randomAngle;
 
-            float x = Mathf.Cos(radianAngle) * _spawnRadius;
-            float y = Mathf.Sin(radianAngle) * _spawnRadius;
+            float x = Mathf.Cos(radianAngle) * _spawnRadius*3;
+            float y = Mathf.Sin(radianAngle) * _spawnRadius*3;
 
             GameObject _bullet =
                 Instantiate(_bulletPrefabs[2], transform.position + new Vector3(x, y, 0f), Quaternion.identity);
 
             _bullet.GetComponent<FolowBullet>().targetTransform = _player;
             
-            _bullet.GetComponent<FolowBullet>().FollowSpeed = 4f;
+            _bullet.GetComponent<FolowBullet>().FollowSpeed = 6f;
             _bullet.GetComponent<FolowBullet>().IsFolow = true;
             
             

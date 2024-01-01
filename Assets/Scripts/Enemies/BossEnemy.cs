@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class BossEnemy : Enemy
+public class BossEnemy : RedCubeEnemy
 {
     public bool CanMove;
     public BoosRoom _bossRoom;
 
     private IShooting _gun;
-
 
     public AttackType AttackTypes;
     public enum AttackType
@@ -29,6 +28,7 @@ public class BossEnemy : Enemy
     {
         if (CanMove)
         {
+            base.Move();
         }
     }
 
@@ -37,6 +37,14 @@ public class BossEnemy : Enemy
         if (CanMove)
         {
             _gun.Fire();
+            if(Random.Range(1,3)==1)
+            {
+                AttackTypes = (AttackType)Random.Range(0,4);
+            }
         }
+    }
+    protected override void CloseAttack(Collision2D other)
+    {
+        
     }
 }

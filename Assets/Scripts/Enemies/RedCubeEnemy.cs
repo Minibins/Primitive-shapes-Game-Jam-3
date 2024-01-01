@@ -28,7 +28,7 @@ public class RedCubeEnemy : Enemy
             Debug.DrawRay(transform.position,_movement,CantWalk(_movement) ? Color.red : Color.green);
         }
         
-        _rigidbody.MovePosition(transform.position + _movement);
+        _move.Run(_movement);
         lastPos = transform.position;
     }
 

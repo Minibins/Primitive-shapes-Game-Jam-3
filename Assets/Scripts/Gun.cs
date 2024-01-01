@@ -113,7 +113,7 @@ public class Gun : MonoBehaviour
         bullet.Damage = Damage.Variable;
         bullet.Gun = this;
         Damage.Additions.Clear();
-
+        
         if(_isPlayer)
         {
             _bullet.GetComponent<Bullet>().IsPlayerBullet = true;
