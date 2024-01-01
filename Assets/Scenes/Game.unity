@@ -4230,7 +4230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _roomPrefab: {fileID: 6552302783837519224, guid: fceb051a3fb32c345af01747170440bb, type: 3}
   _lastRoomPrefab: {fileID: 771473329920436621, guid: cd206cc106ef03446afa2fd81c928081, type: 3}
-  _roomsCount: 23
+  _roomsCount: 20
   _roomSize: 38
   _roomParent: {fileID: 2125064241}
   _portalPrefab: {fileID: 7413158491017720673, guid: 3fe4c8acbed528e4e8e46a9e9395f56d, type: 3}

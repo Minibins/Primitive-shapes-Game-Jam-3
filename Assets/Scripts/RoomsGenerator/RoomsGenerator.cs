@@ -17,6 +17,11 @@ public class RoomsGenerator : MonoBehaviour
 
     public void Start()
     {
+        for(int i = 0; i < _roomParent.childCount; i++)
+        {
+            Destroy(_roomParent.GetChild(i).gameObject);
+        }
+        _spawnedRooms.Clear();
         StartCoroutine(Generate());
     }
 
@@ -50,19 +55,19 @@ public class RoomsGenerator : MonoBehaviour
         {
             if (!_spawnedRooms[i].isShopRoom)
             {
-                SpawnEnemies(_spawnedRooms[i].transform);
+                StartCoroutine(SpawnEnemies(_spawnedRooms[i].transform));
             }
         }
     }
 
-    private void SpawnEnemies(Transform roomTransform)
+    private IEnumerator SpawnEnemies(Transform roomTransform)
     {
         int numberOfEnemies = Random.Range(4, 11);
 
         for (int i = 0; i < numberOfEnemies; i++)
         {
             GameObject enemyPrefab = enemiesPrefabs[Random.Range(0, enemiesPrefabs.Length)];
-
+            yield return new WaitForSeconds(0.4f);
             Vector3 randomPosition = roomTransform.position + new Vector3(Random.Range(-9f, 9f), Random.Range(-9f, 9f), 0f);
             Instantiate(enemyPrefab, randomPosition, Quaternion.identity, roomTransform);
         }

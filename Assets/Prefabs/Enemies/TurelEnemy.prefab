@@ -49,6 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc15ce439e4f3b44d8bf26c37e927259, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxSpeed: 5
+  _normalSpeed: 5
   timeBetweenAttacking: 0.8
   timeBeforeAttacking: 0.4
 --- !u!114 &7276320678328175656
@@ -609,11 +611,11 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 8323769400391632921, guid: 77b71e7ab28e9b146ad964a17598edc5, type: 3}
   _spawnPoint: {fileID: 5266795604791534381}
   _damage: 1
-  _bulletSpeed: 3.45
+  _bulletSpeed: 5
   _isPlayer: 0
   _sound: {fileID: 1449628726130653098, guid: 94721a4ee65231746adc4e662c02212f, type: 3}
   _recoil: 0
   _canFire: 1
-  IsSingleGun: 0
+  IsSingleGun: 1
   IsBurstGun: 0
   ReloadTime: 0

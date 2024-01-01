@@ -6,6 +6,9 @@ public class Portal : ShopItem
 {
     public override void Buy()
     {
-        FindObjectOfType<RoomsGenerator>().Start();
+        RoomsGenerator generator = FindObjectOfType<RoomsGenerator>();
+        generator.transform.position = transform.position;
+        generator.Start();
+        Destroy(gameObject);
     }
 }

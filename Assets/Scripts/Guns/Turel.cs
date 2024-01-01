@@ -1,6 +1,4 @@
 using UnityEngine;
-
-
 public class Turel : Gun, IShooting
 {
     private IShooting _shootingImplementation;
@@ -11,7 +9,7 @@ public class Turel : Gun, IShooting
         _target = Player.GetInstance();
     }
 
-    public void SingleFire()
+    public new void SingleFire()
     {
         throw new System.NotImplementedException();
     }
