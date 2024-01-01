@@ -50,7 +50,7 @@ public class RoomsGenerator : MonoBehaviour
         {
             if (!_spawnedRooms[i].isShopRoom)
             {
-                SpawnEnemies(_spawnedRooms[i].transform);
+         //       SpawnEnemies(_spawnedRooms[i].transform);
             }
         }
     }
