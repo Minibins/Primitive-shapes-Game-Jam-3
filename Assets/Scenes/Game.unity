@@ -2473,7 +2473,7 @@ MonoBehaviour:
     Icon: {fileID: 21300000, guid: d2ebd1cd73dca2349ba16b85c38a5791, type: 3}
   - GunPrefab: {fileID: 2034920315}
     Gun: {fileID: 2034920317}
-    CanSwap: 0
+    CanSwap: 1
     Icon: {fileID: 21300000, guid: c4b50006b5c58cd43a7f713781afa060, type: 3}
 --- !u!96 &1035136616
 TrailRenderer:
