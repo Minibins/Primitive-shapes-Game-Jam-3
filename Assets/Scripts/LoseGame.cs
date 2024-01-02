@@ -5,6 +5,7 @@ public class LoseGame : MonoBehaviour
 {
     public void RestartGame()
     {
+        PlayerPrefs.SetInt("record", RoomsGenerator.record);
         RoomsGenerator.record = -1;
         SceneManager.LoadScene("Game");
     }
@@ -13,4 +14,6 @@ public class LoseGame : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+    
+    
 }
