@@ -5827,10 +5827,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1891018920}
   - {fileID: 676230505}
   - {fileID: 632395019}
   - {fileID: 1190846713}
-  - {fileID: 1891018920}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6481,19 +6481,23 @@ PrefabInstance:
       objectReference: {fileID: 146068669}
     - target: {fileID: 3021317036972708396, guid: afa636db8e2e0684480b0b94a5be9414, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3023499790542931199, guid: afa636db8e2e0684480b0b94a5be9414, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 146068668}
+      objectReference: {fileID: 1190846712}
+    - target: {fileID: 3023499790542931199, guid: afa636db8e2e0684480b0b94a5be9414, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 4526144088822248183, guid: afa636db8e2e0684480b0b94a5be9414, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5436843560012556310, guid: afa636db8e2e0684480b0b94a5be9414, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7900566719796489067, guid: afa636db8e2e0684480b0b94a5be9414, type: 3}
       propertyPath: m_Name
@@ -6505,7 +6509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8725329007579385763, guid: afa636db8e2e0684480b0b94a5be9414, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
