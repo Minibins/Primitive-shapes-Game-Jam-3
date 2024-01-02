@@ -451,9 +451,9 @@ MonoBehaviour:
   _sound: {fileID: 1449628726130653098, guid: 00270130d503e754b864ba3c0d5b0a0d, type: 3}
   _recoil: 0
   _canFire: 1
-  IsSingleGun: 0
-  IsBurstGun: 0
-  ReloadTime: 0
+  IsSingleGun: 1
+  IsBurstGun: 1
+  ReloadTime: 0.03
 --- !u!1 &2603151499584183381
 GameObject:
   m_ObjectHideFlags: 0

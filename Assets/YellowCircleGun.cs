@@ -9,4 +9,5 @@ public class YellowCircleGun : Turel
         base.Start();
         _offset[1] = 180;
     }
+    public override void Fire() => ActionOnBurstFire();
 }

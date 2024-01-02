@@ -617,5 +617,5 @@ MonoBehaviour:
   _recoil: 0
   _canFire: 1
   IsSingleGun: 1
-  IsBurstGun: 0
-  ReloadTime: 0
+  IsBurstGun: 1
+  ReloadTime: 0.1

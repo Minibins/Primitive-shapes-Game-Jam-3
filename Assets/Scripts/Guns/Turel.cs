@@ -27,6 +27,8 @@ public class Turel : Gun, IShooting
             _target = Player.GetInstance();
         }
     }
+    public override void Fire() => ActionOnBurstFire();
+    
 
     public void SwipeUpGun()
     {
