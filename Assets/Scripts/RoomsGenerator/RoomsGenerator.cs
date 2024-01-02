@@ -13,14 +13,21 @@ public class RoomsGenerator : MonoBehaviour
     [SerializeField] private GameObject[] enemiesPrefabs;
     [SerializeField] private CustomRandomRoom[] rooms;
     [SerializeField] private RectTransform _rectTransform;
-    
+    [SerializeField] private Text _youBeatText;
+    private static int record = -1;
     public List<Room> _spawnedRooms = new List<Room>();
 
     public void Start()
     {
+        record++;
+        _youBeatText.text = $"You beat {record} floors";
         for(int i = 0; i < _roomParent.childCount; i++)
         {
             Destroy(_roomParent.GetChild(i).gameObject);
+        }
+        for(int i = 0; i < _rectTransform.childCount; i++)
+        {
+            Destroy(_rectTransform.GetChild(i).gameObject);
         }
         _spawnedRooms.Clear();
         StartCoroutine(Generate());

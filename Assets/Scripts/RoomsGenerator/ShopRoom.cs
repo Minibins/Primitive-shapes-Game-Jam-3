@@ -10,6 +10,7 @@ public class ShopRoom : CustomRandomRoom
         Room room = _spawnedRooms[Random.Range(0,_spawnedRooms.Count)];
         room.isPeacefulRoom = true;
         Instantiate(Prefab,room.gameObject.transform.position,Quaternion.identity,room.gameObject.transform);
-        room.Icon = Icon;
+        Instantiate(Icon.gameObject,room.Icon.transform.position,Quaternion.identity,room.Icon.transform.parent);
+        Destroy(room.Icon.gameObject);
     }
 }
