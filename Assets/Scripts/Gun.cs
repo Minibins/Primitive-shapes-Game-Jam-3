@@ -107,11 +107,12 @@ public class Gun : MonoBehaviour
     private IEnumerator FireWithDelay()
     {
         _canFire = false;
-        SingleFire();
         yield return new WaitForSeconds(ReloadTime);
+        if(Input.GetMouseButton(0)) ActionOnBurstFire();
         _canFire = true;
     }
 
+    virtual protected void ActionOnBurstFire() => SingleFire();
     public virtual void SingleFire()
     {
         GameObject _bullet = SpawnBullet();
