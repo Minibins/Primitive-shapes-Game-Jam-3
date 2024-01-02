@@ -3326,8 +3326,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _walls: {fileID: 3622482284366082377}
   _transitions: {fileID: 41877068695708011}
-  isShopRoom: 0
-  isFirstRoom: 0
+  isPeacefulRoom: 0
+  Icon: {fileID: 95558742457825980, guid: f002f1cbb531c394d97d5e318aee5621, type: 3}
 --- !u!1 &5083595580725233917
 GameObject:
   m_ObjectHideFlags: 0
