@@ -2071,7 +2071,7 @@ MonoBehaviour:
     CanSwap: 0
   - GunPrefab: {fileID: 7893294919960186745}
     Gun: {fileID: 7893294919960186746}
-    CanSwap: 1
+    CanSwap: 0
 --- !u!96 &1035136616
 TrailRenderer:
   serializedVersion: 3
@@ -4259,11 +4259,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980844051}
   m_CullTransparentMesh: 1
---- !u!4 &1991105782 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8205938015755963354, guid: 4f9a43e570850fd4fbc1105eeb17e12b, type: 3}
-  m_PrefabInstance: {fileID: 2386039120473359662}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1998905450
 GameObject:
   m_ObjectHideFlags: 0
@@ -5127,6 +5122,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drobovik
       objectReference: {fileID: 0}
+    - target: {fileID: 970863885345453828, guid: 4f9a43e570850fd4fbc1105eeb17e12b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5184785533678993798, guid: 4f9a43e570850fd4fbc1105eeb17e12b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.216
@@ -5170,10 +5169,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 970863885345453828, guid: 4f9a43e570850fd4fbc1105eeb17e12b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7893294919960186746}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f9a43e570850fd4fbc1105eeb17e12b, type: 3}
 --- !u!4 &4934454408270193691 stripped
 Transform:
@@ -5185,11 +5181,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 970863885345453828, guid: 4f9a43e570850fd4fbc1105eeb17e12b, type: 3}
   m_PrefabInstance: {fileID: 2386039120473359662}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7893294919960186746
+--- !u!114 &7893294919960186746 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4942321208189412588, guid: 4f9a43e570850fd4fbc1105eeb17e12b, type: 3}
+  m_PrefabInstance: {fileID: 2386039120473359662}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7893294919960186745}
   m_Enabled: 1
@@ -5197,17 +5192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14e13395d1653e4a8b254054218dc61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 8323769400391632921, guid: 77b71e7ab28e9b146ad964a17598edc5, type: 3}
-  _spawnPoint: {fileID: 1991105782}
-  _damage: 0.2
-  _bulletSpeed: 30
-  _isPlayer: 1
-  _sound: {fileID: 1449628726130653098, guid: 00270130d503e754b864ba3c0d5b0a0d, type: 3}
-  _recoil: 1.5
-  _canFire: 1
-  IsSingleGun: 1
-  IsBurstGun: 0
-  ReloadTime: 5.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
