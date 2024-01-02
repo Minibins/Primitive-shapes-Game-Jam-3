@@ -30,7 +30,7 @@ public class Player : BetterBehavior
 
     private void Start()
     {
-        
+        _coinText.text = "Money: <color=yellow>" + coins.ToString() + "</color>";
         instance = transform;
         _move = GetComponent<Move>();
         
@@ -56,7 +56,7 @@ public class Player : BetterBehavior
         if (other.CompareTag("Coin"))
         {
             coins++;
-            _coinText.text = "Money:" + coins.ToString();
+            _coinText.text = "Money: <color=yellow>" + coins.ToString() + "</color>";
             Destroy(other.gameObject);
         }
     }
