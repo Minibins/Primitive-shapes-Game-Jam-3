@@ -6,9 +6,9 @@ public abstract class Health : MonoBehaviour
     [SerializeField] protected float _health;
     [SerializeField] protected float _maxHealth;
     
-    [SerializeField] private Image[] _heartSprites; // Массив изображений сердец
-    [SerializeField] private Image _emptyHeartSprite; // Спрайт для пустого сердца
-    [SerializeField] private Image _fullHeartSprite; // Спрайт для заполненного сердца
+    [SerializeField] private Image[] _heartSprites; 
+    [SerializeField] private Image _emptyHeartSprite; 
+    [SerializeField] private Image _fullHeartSprite; 
 
     public virtual void AddInvisibility(float time)
     {
