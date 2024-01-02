@@ -14,7 +14,7 @@ public class RoomsGenerator : MonoBehaviour
     [SerializeField] private CustomRandomRoom[] rooms;
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] private Text _youBeatText;
-    private static int record = -1;
+    public static int record = -1;
     public List<Room> _spawnedRooms = new List<Room>();
 
     public void Start()

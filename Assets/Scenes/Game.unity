@@ -4388,7 +4388,7 @@ MonoBehaviour:
   _lastRoomPrefab: {fileID: 771473329920436621, guid: cd206cc106ef03446afa2fd81c928081, type: 3}
   _roomsCount: 20
   _roomSize: 38
-  _minimapRoomSize: 20
+  _minimapRoomSize: 50
   _roomParent: {fileID: 2125064241}
   enemiesPrefabs:
   - {fileID: 1010636261041685308, guid: 3fb34a748b950294f9300410172d0108, type: 3}

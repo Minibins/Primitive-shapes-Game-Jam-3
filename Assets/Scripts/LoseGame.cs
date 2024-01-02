@@ -5,6 +5,7 @@ public class LoseGame : MonoBehaviour
 {
     public void RestartGame()
     {
+        RoomsGenerator.record = -1;
         SceneManager.LoadScene("Game");
     }
 
