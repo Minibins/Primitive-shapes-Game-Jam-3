@@ -21,7 +21,7 @@ public class ShopItem : MonoBehaviour
     {
         if (_isPlayerInside)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (InputController._Ebutton)
             {
                 if (_player.coins >= _price)
                 {

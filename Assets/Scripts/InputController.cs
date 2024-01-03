@@ -6,13 +6,14 @@ public class InputController : MonoBehaviour
     [SerializeField] private GameObject _gunSwipe;
     [SerializeField] private GameObject SettingsPanel;
     [SerializeField] private GameObject _statsPanel;
+    
     private IShooting _shooting;
     public static float _horizontalInput;
     public static float _verticalInput;
+    public static bool _Ebutton;
 
-
-    [SerializeField] private Joystick _moveJoystick;
-    [SerializeField] private Joystick _fireJoystick;
+    public Joystick _moveJoystick;
+    public Joystick _fireJoystick;
 
     [SerializeField] private bool _isAndroid;
     public static bool IssAndroid;
@@ -23,7 +24,7 @@ public class InputController : MonoBehaviour
     private void Start()
     {
         _shooting = _gunSwipe.GetComponent<IShooting>();
-        
+
         _moveJoystick.gameObject.SetActive(_isAndroid);
         _fireJoystick.gameObject.SetActive(_isAndroid);
     }
@@ -32,6 +33,17 @@ public class InputController : MonoBehaviour
     {
         IssAndroid = _isAndroid;
 
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            EButton(true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.E))
+        {
+            EButton(false);
+        }
+        
         if (!_isAndroid)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -89,9 +101,21 @@ public class InputController : MonoBehaviour
         }
     }
 
+    public void EButton(bool enable)
+    {
+        _Ebutton = enable;
+    }
+
+
+    public void SetActiveJoysticks(bool enable)
+    {
+        _moveJoystick.gameObject.SetActive(enable);
+        _fireJoystick.gameObject.SetActive(enable);
+    }
 
     public void OpenPauseMenu()
     {
+        SetActiveJoysticks(false);
         SettingsPanel.GetComponent<Settings>().PauseMenu(true);
     }
 

@@ -15,7 +15,7 @@ public class LoadSettings : MonoBehaviour
 
     public virtual void LoadFloat()
     {
-        valueFloat = PlayerPrefs.GetFloat(_key, 0);
+        valueFloat = PlayerPrefs.GetFloat(_key, 1);
     }
     
     protected virtual void LoadBool()

@@ -11,6 +11,7 @@ public class PlayerHealth : Health
     [SerializeField] private Image[] _armorSprites;
     [SerializeField] private Image _emptyArmorSprite;
     [SerializeField] private Image _fullArmorSprite;
+    [SerializeField] private InputController _inputController;
 
     private bool _isInvicible;
     private TrailRenderer _trail;
@@ -62,6 +63,7 @@ public class PlayerHealth : Health
 
     public override void Die()
     {
+        _inputController.SetActiveJoysticks(false);
         LosePanel.SetActive(true);
     }
 

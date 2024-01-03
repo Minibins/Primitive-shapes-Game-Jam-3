@@ -5,6 +5,7 @@ public class Settings : MonoBehaviour
 {
     [SerializeField] private GameObject _settingsPanel;
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private InputController _inputController;
     private Camera _camera;
 
     private void Start()
@@ -16,6 +17,7 @@ public class Settings : MonoBehaviour
     
     public void PauseMenu(bool eneble)
     {
+        _inputController.SetActiveJoysticks(!eneble);
         _pauseMenu.SetActive(eneble);
 
         Scene _currenScene = SceneManager.GetActiveScene();
