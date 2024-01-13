@@ -2068,10 +2068,10 @@ MonoBehaviour:
     CanSwap: 1
   - GunPrefab: {fileID: 2034920315}
     Gun: {fileID: 2034920317}
-    CanSwap: 0
+    CanSwap: 1
   - GunPrefab: {fileID: 7893294919960186745}
     Gun: {fileID: 7893294919960186746}
-    CanSwap: 0
+    CanSwap: 1
 --- !u!96 &1035136616
 TrailRenderer:
   serializedVersion: 3
