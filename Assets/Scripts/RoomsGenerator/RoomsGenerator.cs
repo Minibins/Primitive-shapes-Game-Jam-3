@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using System.Linq;
 
 public class RoomsGenerator : MonoBehaviour
 {
@@ -58,14 +59,15 @@ public class RoomsGenerator : MonoBehaviour
             room.Spawn(_spawnedRooms);
         }
 
-        for (int i = 1; i < _spawnedRooms.Count - 1; i++)
+       /* for (int i = 1; i < _spawnedRooms.Count - 1; i++)
         {
             if (!_spawnedRooms[i].isPeacefulRoom)
             {
                 StartCoroutine(SpawnEnemies(_spawnedRooms[i].transform));
             }
-        }
-        yield return new WaitForEndOfFrame();
+        }*/
+
+        yield return null;
     }
 
     private IEnumerator SpawnEnemies(Transform roomTransform)

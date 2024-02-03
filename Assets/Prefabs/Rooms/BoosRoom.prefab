@@ -2127,7 +2127,7 @@ MonoBehaviour:
   _walls: {fileID: 3622482284366082377}
   _transitions: {fileID: 41877068695708011}
   isPeacefulRoom: 0
-  Icon: {fileID: 95558742457825980, guid: 5aea2921fa55cbb42bdb1b5f93175956, type: 3}
+  Icon: {fileID: 5950812812423202131, guid: 4b5345592fc10454c877361f7a11bc64, type: 3}
   _bosses:
   - {fileID: 1601365921787232875, guid: 95aae80fc6f4bdf489bd3a574b47641d, type: 3}
   _doors: {fileID: 8457035076073879898}
